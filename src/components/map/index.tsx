@@ -13,7 +13,7 @@ const Map = (): JSX.Element => {
     <MapContainer
       center={defaultLocation}
       zoom={13}
-      style={{ width: "90%", height: 500 }}
+      style={{ width: 500, height: 350 }}
       scrollWheelZoom={false}
     >
       <TileLayer
