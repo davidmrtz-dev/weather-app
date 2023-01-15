@@ -26,12 +26,13 @@ export const ControledLayer = ({
     <Tooltip
       permanent
       offset={[0, 20]}
-    >
-      Popup in FeatureGroup
-    </Tooltip>
+      children={<WeatherData />}
+    />
     <Circle
       center={location}
       radius={radius}
     />
   </FeatureGroup>
 </LayersControl.Overlay>;
+
+const WeatherData = (): JSX.Element => <div><p>data</p></div>;
