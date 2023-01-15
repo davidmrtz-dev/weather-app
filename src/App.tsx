@@ -1,11 +1,12 @@
 import { Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
-import Layout from './layouts/Layout';
+import Layout from './components/layouts/Layout';
 import Helmet from 'react-helmet';
 import NotFound from './pages/not-found';
 import About from './pages/about';
 import Home from './pages';
 import { theme } from './Theme';
+import './assets/App.css';
 
 const App = (): JSX.Element => {
   return(
