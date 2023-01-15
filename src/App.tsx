@@ -1,6 +1,4 @@
-import logo from './logo.svg';
 import { Routes, Route } from 'react-router-dom';
-import './App.css';
 import Layout from './layouts/Layout';
 import Helmet from 'react-helmet';
 import NotFound from './pages/not-found';
