@@ -1,14 +1,17 @@
 import logo from './logo.svg';
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
+import Layout from './layouts/Layout';
 
 const AppRoot = (): JSX.Element => {
   return(
-    <Routes>
-      <Route path='/' element={<Home />} />
-      <Route path='/about' element={<About />} />
-      <Route path='*' element={<NotFound />} />
-    </Routes>
+    <Layout>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/about' element={<About />} />
+        <Route path='*' element={<NotFound />} />
+      </Routes>
+    </Layout>
   );
 };
 
