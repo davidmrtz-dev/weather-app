@@ -19,7 +19,7 @@ const LocationMarker = (): null | JSX.Element => {
   const icon = new L.Icon({
     iconUrl: "./marker.png",
     iconSize: new L.Point(25, 31),
-    iconAnchor: [13, 41],
+    iconAnchor: [13, 11],
   });
   const [position, setPosition] = useState<null | LatLngExpression>(null)
   const map = useMapEvents({
