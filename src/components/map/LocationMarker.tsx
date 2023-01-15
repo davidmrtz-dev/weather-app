@@ -23,7 +23,7 @@ const LocationMarker = (): null | JSX.Element => {
       setPosition(e.latlng);
       map.flyTo(e.latlng, map.getZoom());
     },
-  })
+  });
 
   return position === null ? null : (
     <>

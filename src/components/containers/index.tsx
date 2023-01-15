@@ -6,7 +6,7 @@ const LayoutContainer = styled.div`
   width: 100vw;
   display: flex;
   justify-content: center;
-  align-items: center;
+  padding: 20px;
   margin: 5em 0;
 `;
 
