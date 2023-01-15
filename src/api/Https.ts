@@ -6,7 +6,7 @@ type HttpResult = {
 };
 
 const axiosClient = axios.create({
-  baseURL: 'https://maps.googleapis.com/maps/api/',
+  baseURL: 'https://maps.googleapis.com/maps/api',
   headers: {
     'Content-Type': 'application/json'
   },
