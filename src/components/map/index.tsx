@@ -64,7 +64,7 @@ const Layers = ({ location }: { location: LatLngExpression}):JSX.Element => {
       <Circle
         center={location}
         pathOptions={{ fillColor: 'blue' }}
-        radius={1200}
+        radius={3200}
       />
     </LayersControl.Overlay>
     <LayersControl.Overlay name='Layer-2'>
