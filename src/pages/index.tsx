@@ -1,14 +1,28 @@
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
-import { LatLngExpression } from "leaflet";
+import {
+  MapContainer,
+  TileLayer,
+  Marker,
+  Popup,
+  LayersControl,
+  LayerGroup,
+  Circle,
+  Rectangle,
+  FeatureGroup
+} from 'react-leaflet'
+import { LatLngExpression, LatLngBoundsExpression } from "leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 
 const Home = (): JSX.Element => {
   const location: LatLngExpression = [47.2154556, -1.5644531];
+  const rectangle: LatLngBoundsExpression = [
+    [51.49, -0.08],
+    [51.5, -0.06],
+  ];
   const icon = new L.Icon({
     iconUrl: "./marker.png",
     iconSize: new L.Point(25, 31),
-    iconAnchor: [13, 31],
+    iconAnchor: [13, 41],
   });
 
   return (
