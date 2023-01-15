@@ -4,7 +4,6 @@ import {
   useMapEvents
 } from 'react-leaflet'
 import { LatLngExpression } from "leaflet";
-import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import { useState } from 'react';
 import { ControledLayers } from './ControledLayers';
