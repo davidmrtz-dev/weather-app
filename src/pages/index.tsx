@@ -23,7 +23,7 @@ const LocationMarker = (): null | JSX.Element => {
   });
   const [position, setPosition] = useState<null | LatLngExpression>(null)
   const map = useMapEvents({
-    click() {
+    dblclick() {
       map.locate()
     },
     locationfound(e) {
@@ -54,7 +54,7 @@ const Home = (): JSX.Element => {
   return (
     <MapContainer
       center={location}
-      zoom={13}
+      zoom={11}
       style={{ width: "90%", height: 500 }}
       scrollWheelZoom={false}
     >
@@ -64,7 +64,7 @@ const Home = (): JSX.Element => {
       />
       <LayersControl position="topright">
         <LayersControl.Overlay name="Marker with popup">
-          <Marker position={location} icon={icon}>
+          <Marker position={[20.609153, -100.407117]} icon={icon}>
             <Popup>
               A pretty CSS3 popup. <br /> Easily customizable.
             </Popup>
@@ -73,32 +73,32 @@ const Home = (): JSX.Element => {
         <LayersControl.Overlay name="Layer group with circles">
           <LayerGroup>
             <Circle
-              center={[20.651831, -100.361452]}
+              center={[20.599299, -100.410959]}
               pathOptions={{ fillColor: 'blue' }}
-              radius={200}
+              radius={1200}
             />
             <Circle
-              center={[20.653467, -100.361506]}
+              center={[20.608984, -100.388853]}
               pathOptions={{ fillColor: 'red' }}
-              radius={100}
+              radius={1100}
               stroke={false}
             />
             <LayerGroup>
               <Circle
-                center={[20.649763, -100.363533]}
+                center={[20.566715, -100.366746]}
                 pathOptions={{ color: 'green', fillColor: 'green' }}
-                radius={100}
+                radius={2200}
               />
             </LayerGroup>
           </LayerGroup>
         </LayersControl.Overlay>
-        <LayersControl.Overlay name="Feature group">
+        {/* <LayersControl.Overlay name="Feature group">
           <FeatureGroup pathOptions={{ color: 'purple' }}>
             <Popup>Popup in FeatureGroup</Popup>
             <Circle center={[20.650172, -100.370905]} radius={200} />
             <Rectangle bounds={rectangle} />
           </FeatureGroup>
-        </LayersControl.Overlay>
+        </LayersControl.Overlay> */}
       </LayersControl>
       <LocationMarker />
     </MapContainer>
