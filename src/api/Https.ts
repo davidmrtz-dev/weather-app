@@ -6,9 +6,11 @@ type HttpResult = {
 };
 
 const axiosClient = axios.create({
-  baseURL: 'https://maps.googleapis.com/maps/api',
+  baseURL: 'https://wft-geo-db.p.rapidapi.com/v1/geo',
   headers: {
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'X-RapidAPI-Key': process.env.REACT_APP_GEO_DB_KEY,
+    'X-RapidAPI-Host': 'wft-geo-db.p.rapidapi.com'
   },
   validateStatus: (status: number): boolean => {
     return status < 400;

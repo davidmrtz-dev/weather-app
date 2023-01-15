@@ -27,6 +27,7 @@ const LocationMarker = (): null | JSX.Element => {
 
   useEffect(() => {
     if (position) {
+      console.log('position:', position);
       // const newLng = position.lng + 0.1;
       // setTimeout(()=>{
       //   map.flyTo({ lat: position.lat, lng: newLng});
