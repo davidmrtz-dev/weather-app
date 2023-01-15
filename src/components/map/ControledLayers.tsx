@@ -4,7 +4,7 @@ import {
 import { LatLngLiteral } from "leaflet";
 import { ControledLayer } from './ControledLayer';
 
-export const ControledLayers = ({ location }: { location: LatLngLiteral}):JSX.Element => {
+export const ControledLayers = ({ location }: { location: LatLngLiteral }):JSX.Element => {
   return(<LayersControl position="topright">
     <ControledLayer
       name='Layer-1'
