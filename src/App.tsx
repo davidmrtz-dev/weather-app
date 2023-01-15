@@ -2,10 +2,15 @@ import logo from './logo.svg';
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import Layout from './layouts/Layout';
+import Helmet from 'react-helmet';
 
 const AppRoot = (): JSX.Element => {
   return(
     <Layout>
+      <Helmet>
+        <title>Weather App</title>
+        <meta name="description" content="App that let you know the weather with map's functionality" />
+      </Helmet>
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
