@@ -40,7 +40,7 @@ const LocationMarker = (): null | JSX.Element => {
 
   useEffect(() => {
     if (results) {
-      debugger;
+      console.log(results);
     }
   }, [results])
 
