@@ -54,7 +54,7 @@ const Home = (): JSX.Element => {
   return (
     <MapContainer
       center={location}
-      zoom={13}
+      zoom={10}
       style={{ width: "90%", height: 500 }}
       scrollWheelZoom={false}
     >
