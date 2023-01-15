@@ -13,7 +13,7 @@ import L from "leaflet";
 import { useState } from 'react';
 
 const Map = (): JSX.Element => {
-  const defaultLocation: LatLngExpression = [20.608867, -100.408166];
+  const defaultLocation: LatLngExpression = [19.274919, -99.147155];
 
   return(
     <MapContainer
@@ -26,30 +26,6 @@ const Map = (): JSX.Element => {
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      {/* <LayersControl position="topright">
-        <LayersControl.Overlay name='Layer-1'>
-          <Circle
-            center={location}
-            pathOptions={{ fillColor: 'blue' }}
-            radius={1200}
-          />
-        </LayersControl.Overlay>
-        <LayersControl.Overlay name='Layer-2'>
-            <Circle
-              center={location}
-              pathOptions={{ fillColor: 'red' }}
-              radius={1100}
-              stroke={false}
-            />
-        </LayersControl.Overlay>
-        <LayersControl.Overlay name='Layer-3'>
-          <Circle
-            center={location}
-            pathOptions={{ color: 'green', fillColor: 'green' }}
-            radius={2200}
-          />
-        </LayersControl.Overlay>
-      </LayersControl> */}
       <LocationMarker />
     </MapContainer>
   );
@@ -73,10 +49,40 @@ const LocationMarker = (): null | JSX.Element => {
   })
 
   return position === null ? null : (
-    <Marker position={position} icon={icon}>
-      <Popup>You are here</Popup>
-    </Marker>
+    <>
+      <Marker position={position} icon={icon}>
+        <Popup>You are here</Popup>
+      </Marker>
+      <Layers location={position}/>
+    </>
   )
+};
+
+const Layers = ({ location }: { location: LatLngExpression}):JSX.Element => {
+  return(<LayersControl position="topright">
+    <LayersControl.Overlay name='Layer-1' checked>
+      <Circle
+        center={location}
+        pathOptions={{ fillColor: 'blue' }}
+        radius={1200}
+      />
+    </LayersControl.Overlay>
+    <LayersControl.Overlay name='Layer-2'>
+        <Circle
+          center={location}
+          pathOptions={{ fillColor: 'red' }}
+          radius={1100}
+          stroke={false}
+        />
+    </LayersControl.Overlay>
+    <LayersControl.Overlay name='Layer-3'>
+      <Circle
+        center={location}
+        pathOptions={{ color: 'green', fillColor: 'green' }}
+        radius={2200}
+      />
+    </LayersControl.Overlay>
+  </LayersControl>);
 };
 
 export default Map;
