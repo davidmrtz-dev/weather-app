@@ -34,11 +34,9 @@ const LocationMarker = (): null | JSX.Element => {
 
   useEffect(() => {
     if (position) {
-      // debugger;
-      const newLat = position.lat + 0.1;
+      const newLng = position.lng + 0.1;
       setTimeout(()=>{
-        console.log('position!:', position);
-        map.flyTo({ lat: newLat, lng: position.lng});
+        map.flyTo({ lat: position.lat, lng: newLng});
       }, 5000);
       // setGeocode(position);
     }
