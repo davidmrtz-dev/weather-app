@@ -34,7 +34,7 @@ const LocationMarker = (): null | JSX.Element => {
 
   useEffect(() => {
     if (position) {
-      setGeocode(position);
+      // setGeocode(position);
     }
   }, [position]);
 
