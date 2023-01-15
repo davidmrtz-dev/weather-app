@@ -6,18 +6,11 @@ import {
 import { LatLngLiteral, LocationEvent } from "leaflet";
 import { useEffect, useState } from 'react';
 import { ControledLayers } from './ControledLayers';
-import { getGeocode } from '../../api/core/GoogleMaps';
 import { LocEvent } from '../../@types';
 import { icon } from '../../utils';
 
 const LocationMarker = (): null | JSX.Element => {
-  const [results, setResults] = useState<null | unknown []>(null);
   const [position, setPosition] = useState<null | LatLngLiteral>(null);
-
-  const setGeocode = async(location: LatLngLiteral): Promise<void> => {
-    const result = await getGeocode(location);
-    setResults(result.results);
-  };
 
   const map = useMapEvents({
     click() {
@@ -34,21 +27,13 @@ const LocationMarker = (): null | JSX.Element => {
 
   useEffect(() => {
     if (position) {
-      // debugger;
-      const newLat = position.lat + 0.1;
-      setTimeout(()=>{
-        console.log('position!:', position);
-        map.flyTo({ lat: newLat, lng: position.lng});
-      }, 5000);
+      // const newLng = position.lng + 0.1;
+      // setTimeout(()=>{
+      //   map.flyTo({ lat: position.lat, lng: newLng});
+      // }, 5000);
       // setGeocode(position);
     }
   }, [position]);
-
-  useEffect(() => {
-    if (results) {
-      console.log(results);
-    }
-  }, [results])
 
   return position === null ? null : (
     <>

@@ -3,7 +3,7 @@ import {
   Circle,
   FeatureGroup,
 } from 'react-leaflet'
-import { LatLngExpression } from "leaflet";
+import { LatLngLiteral } from "leaflet";
 import { MapLayerColors } from '../../@types';
 
 export const ControledLayer = ({
@@ -15,7 +15,7 @@ export const ControledLayer = ({
   checked
 }: {
   name: string;
-  location: LatLngExpression,
+  location: LatLngLiteral,
   color: MapLayerColors,
   fillColor: MapLayerColors,
   radius: number,
