@@ -1,10 +1,13 @@
 import { BrowserRouter } from 'react-router-dom';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
+import { GlobalStyle } from "./GlobalStyle";
 
 ReactDOM.render(
-  <BrowserRouter basename={process.env.NODE_ENV === 'development' ? '' : '/app'}>
-    <App />
-  </BrowserRouter>, document.getElementById('root')
+  <>
+    <GlobalStyle />
+    <BrowserRouter basename={process.env.NODE_ENV === 'development' ? '' : '/app'}>
+      <App />
+    </BrowserRouter>
+  </>, document.getElementById('root')
 );
