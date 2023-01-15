@@ -7,14 +7,40 @@ import {
   LayerGroup,
   Circle,
   Rectangle,
-  FeatureGroup
+  FeatureGroup,
+  useMapEvents
 } from 'react-leaflet'
 import { LatLngExpression, LatLngBoundsExpression } from "leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
+import { useState } from 'react';
+
+const LocationMarker = (): null | JSX.Element => {
+  const icon = new L.Icon({
+    iconUrl: "./marker.png",
+    iconSize: new L.Point(25, 31),
+    iconAnchor: [13, 41],
+  });
+  const [position, setPosition] = useState<null | LatLngExpression>(null)
+  const map = useMapEvents({
+    click() {
+      map.locate()
+    },
+    locationfound(e) {
+      setPosition(e.latlng)
+      map.flyTo(e.latlng, map.getZoom())
+    },
+  })
+
+  return position === null ? null : (
+    <Marker position={position} icon={icon}>
+      <Popup>You are here</Popup>
+    </Marker>
+  )
+};
 
 const Home = (): JSX.Element => {
-  const location: LatLngExpression = [20.650685, -100.364983];
+  const location: LatLngExpression = [28.261963, -108.262717];
   const rectangle: LatLngBoundsExpression = [
     [20.651892, -100.376030],
     [20.654572, -100.374549]
@@ -30,6 +56,7 @@ const Home = (): JSX.Element => {
       center={location}
       zoom={13}
       style={{ width: "90%", height: 500 }}
+      scrollWheelZoom={false}
     >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -73,6 +100,7 @@ const Home = (): JSX.Element => {
           </FeatureGroup>
         </LayersControl.Overlay>
       </LayersControl>
+      <LocationMarker />
     </MapContainer>
   );
 };
