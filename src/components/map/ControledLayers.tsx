@@ -1,6 +1,8 @@
 import {
   LayersControl,
   Circle,
+  FeatureGroup,
+  Popup,
 } from 'react-leaflet'
 import { LatLngExpression } from "leaflet";
 import "leaflet/dist/leaflet.css";
@@ -34,9 +36,11 @@ const ControledLayer = ({
   radius: number,
   checked?: boolean
 }): JSX.Element => <LayersControl.Overlay name={name} checked={checked}>
-  <Circle
-    center={location}
-    pathOptions={{ color, fillColor}}
-    radius={radius}
-  />
+  <FeatureGroup pathOptions={{ color, fillColor }}>
+    <Popup>Popup in FeatureGroup</Popup>
+    <Circle
+      center={location}
+      radius={radius}
+    />
+  </FeatureGroup>
 </LayersControl.Overlay>;
