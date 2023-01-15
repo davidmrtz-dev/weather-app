@@ -7,7 +7,7 @@ const NavigationContainer = styled.div`
   left: 0;
   width: 100%;
   height: 5em;
-  background-color: ${props => props.theme.colors.brandGray};
+  background-color: ${props => props.theme.colors.backgroundBlue};
   display: flex;
   justify-content: space-around;
   align-items: center;

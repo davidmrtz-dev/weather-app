@@ -25,7 +25,7 @@ export const theme = {
     danger: '#99262B',
     rfwPink: '#FF2659',
     rfwPurple: '#301ECD',
-    rfwGray: '#989898',
+    rfwGray: '#b2b0b0',
     rfwSoftGray: 'rgba(0,0,0,0.5)'
   },
   shadows: {
