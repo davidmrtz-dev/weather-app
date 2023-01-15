@@ -1,0 +1,1 @@
+export type MapLayerColors = 'red' | 'blue' | 'green';
