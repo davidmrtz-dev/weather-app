@@ -3,6 +3,7 @@ import {
   Circle,
   FeatureGroup,
   Tooltip,
+  Polygon
 } from 'react-leaflet'
 import { LatLngExpression } from "leaflet";
 import { MapLayerColors } from '../../@types';
