@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const LayoutContainer = styled.div`
-  background-color: ${props => props.theme.colors.darkBlue};
+  background-color: ${props => props.theme.colors.backgroundBlue};
   height: 100vh;
   width: 100vw;
   display: flex;
