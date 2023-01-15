@@ -3,27 +3,46 @@ import {
   Popup,
   useMapEvents
 } from 'react-leaflet'
-import { LatLngExpression } from "leaflet";
-import L from "leaflet";
-import { useState } from 'react';
+import { LatLngLiteral, LocationEvent } from "leaflet";
+import { useEffect, useState } from 'react';
 import { ControledLayers } from './ControledLayers';
+import { getGeocode } from '../../api/core/GoogleMaps';
+import { LocEvent } from '../../@types';
+import { icon } from '../../utils';
 
 const LocationMarker = (): null | JSX.Element => {
-  const icon = new L.Icon({
-    iconUrl: "./marker.png",
-    iconSize: new L.Point(25, 31),
-    iconAnchor: [13, 17],
-  });
-  const [position, setPosition] = useState<null | LatLngExpression>(null);
+  const [results, setResults] = useState<null | unknown []>(null);
+  const [position, setPosition] = useState<null | LatLngLiteral>(null);
+
+  const setGeocode = async(location: LatLngLiteral): Promise<void> => {
+    const result = await getGeocode(location);
+    setResults(result.results);
+  };
+
   const map = useMapEvents({
     click() {
-      map.locate();
+      if (!position) map.locate();
     },
-    locationfound(e) {
-      setPosition(e.latlng);
-      map.flyTo(e.latlng, map.getZoom());
+    locationfound(e: LocationEvent & LocEvent) {
+      const { latitude: lat, longitude: lng } = e;
+      if (!position && lat && lng) {
+        setPosition({ lat, lng });
+        map.flyTo(e.latlng, map.getZoom());
+      }
     },
-  })
+  });
+
+  useEffect(() => {
+    if (position) {
+      setGeocode(position);
+    }
+  }, [position]);
+
+  useEffect(() => {
+    if (results) {
+      debugger;
+    }
+  }, [results])
 
   return position === null ? null : (
     <>

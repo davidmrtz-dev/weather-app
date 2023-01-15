@@ -13,8 +13,8 @@ const Map = (): JSX.Element => {
     <MapContainer
       center={defaultLocation}
       zoom={13}
-      style={{ width: "90%", height: 500 }}
-      scrollWheelZoom={false}
+      style={{ width: 500, height: 350 }}
+      dragging={false}
     >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
