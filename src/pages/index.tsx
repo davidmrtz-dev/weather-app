@@ -7,7 +7,7 @@ import {
   Circle,
   useMapEvents
 } from 'react-leaflet'
-import { LatLngExpression, LatLngBoundsExpression } from "leaflet";
+import { LatLngExpression } from "leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import { useState } from 'react';
@@ -41,7 +41,7 @@ const Home = (): JSX.Element => {
   return (
     <MapContainer
       center={location}
-      zoom={11}
+      zoom={13}
       style={{ width: "90%", height: 500 }}
       scrollWheelZoom={false}
     >
