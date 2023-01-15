@@ -13,11 +13,11 @@ import L from "leaflet";
 import { useState } from 'react';
 
 const Map = (): JSX.Element => {
-  const location: LatLngExpression = [20.608544, -100.388853];
+  const defaultLocation: LatLngExpression = [20.608867, -100.408166];
 
   return(
     <MapContainer
-      center={location}
+      center={defaultLocation}
       zoom={13}
       style={{ width: "90%", height: 500 }}
       scrollWheelZoom={false}
@@ -26,7 +26,7 @@ const Map = (): JSX.Element => {
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      <LayersControl position="topright">
+      {/* <LayersControl position="topright">
         <LayersControl.Overlay name='Layer-1'>
           <Circle
             center={location}
@@ -49,7 +49,7 @@ const Map = (): JSX.Element => {
             radius={2200}
           />
         </LayersControl.Overlay>
-      </LayersControl>
+      </LayersControl> */}
       <LocationMarker />
     </MapContainer>
   );
@@ -61,14 +61,14 @@ const LocationMarker = (): null | JSX.Element => {
     iconSize: new L.Point(25, 31),
     iconAnchor: [13, 17],
   });
-  const [position, setPosition] = useState<null | LatLngExpression>(null)
+  const [position, setPosition] = useState<null | LatLngExpression>(null);
   const map = useMapEvents({
-    dblclick() {
-      map.locate()
+    click() {
+      map.locate();
     },
     locationfound(e) {
-      setPosition(e.latlng)
-      map.flyTo(e.latlng, map.getZoom())
+      setPosition(e.latlng);
+      map.flyTo(e.latlng, map.getZoom());
     },
   })
 
