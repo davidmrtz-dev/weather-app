@@ -9,6 +9,7 @@ export const theme = {
   },
   colors: {
     lightWhite: '#D5D5D6',
+    lighterWhite: '#FAFAFB',
     blues: {
       fancyBlue: '#8DB0F4',
       dailyBlue: '#7099E8',

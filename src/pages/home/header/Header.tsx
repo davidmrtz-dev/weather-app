@@ -2,7 +2,7 @@ import { Image, Typography } from "antd";
 import { LatLngLiteral } from "leaflet";
 import styled from "styled-components";
 import { LoadingMask } from "../../../atoms/LoadingMask";
-import logo from '../../../assets/svg/02n.svg';
+import { ReactComponent as Logo} from '../../../assets/svg/02n.svg';
 import { theme } from "../../../Theme";
 
 const HeaderContainer = styled.div`
@@ -18,7 +18,7 @@ export const Header = ({
 }): JSX.Element =>  <HeaderContainer>
   {!position ? (<Typography style={{
     ...theme.texts.brandH3,
-    color: theme.colors.lightWhite,
+    color: theme.colors.lighterWhite,
     textAlign: 'center'
   }}>
     Click on the map
@@ -36,7 +36,6 @@ const HeaderContentContainer = styled.div`
 const HeaderContentWrapper = styled.div`
   flex: 1;
   margin: 5px;
-  background: gray;
 `;
 
 const HeaderContent = (): JSX.Element => <HeaderContentContainer>
@@ -47,8 +46,25 @@ const HeaderContent = (): JSX.Element => <HeaderContentContainer>
       justifyContent: 'space-around'
     }}
   >
-    <Typography style={{...theme.texts.brandH1}}>21</Typography>
-    <Image width={100} src={logo} />
+    <div style={{
+      position: 'relative'
+    }}>
+      <Typography style={{...theme.texts.brandH1, color: theme.colors.lighterWhite}}>21</Typography>
+      <Typography style={{
+        ...theme.texts.brandSubFont,
+        color: theme.colors.lighterWhite,
+        fontWeight: 'bold',
+        position: 'absolute',
+        top: 0,
+        left: 60,
+        width: 100
+      }}>c°</Typography>
+    </div>
+    <Logo fill={theme.colors.lighterWhite} width={100}/>
   </HeaderContentWrapper>
-  <HeaderContentWrapper><h1>okokokok</h1></HeaderContentWrapper>
+  <HeaderContentWrapper>
+
+  </HeaderContentWrapper>
 </HeaderContentContainer>;
+
+
