@@ -15,11 +15,11 @@ const Home = (): JSX.Element => {
     setNearCities(result.data);
   };
 
-  useEffect(() => {
-    if (position) {
-      getCities(position);
-    }
-  }, [position]);
+  // useEffect(() => {
+  //   if (position) {
+  //     getCities(position);
+  //   }
+  // }, [position]);
 
   useEffect(() => {
     console.log('nearcities:', nearCities);
@@ -27,7 +27,9 @@ const Home = (): JSX.Element => {
 
   return (
     <>
-      <Header />
+      <Header
+        position={position}
+      />
       <Map
         defaultLocation={defaultLocation}
         position={position}
