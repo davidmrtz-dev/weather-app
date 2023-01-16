@@ -1,24 +1,74 @@
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
-
-const NavigationContainer = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 5em;
-  background-color: ${props => props.theme.colors.backgroundBlue};
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  z-index: 401;
-`;
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { NavigationContainer } from '../containers/NavigationContainer';
+import { useState } from 'react';
+import { Button, Drawer, Space } from 'antd';
+import { theme } from '../../Theme';
 
 const Navigation = (): JSX.Element => {
+  const [show, setShow] = useState(false);
+
  return(
   <NavigationContainer>
-    <Link to='/'>Home</Link>
-    <Link to='/about'>About</Link>
+    {!show && (<FontAwesomeIcon
+      color={theme.colors.lightWhite}
+      size='lg'
+      style={{ cursor: 'pointer' }}
+      icon={faBars} onClick={() => setShow(true)}/>)
+    }
+    {show && (<FontAwesomeIcon
+      color={theme.colors.lightWhite}
+      size='lg'
+      style={{ cursor: 'pointer' }}
+      icon={faTimes} onClick={() => setShow(false)}/>)
+    }
+    <Drawer
+      placement={'top'}
+      onClose={() => setShow(false)}
+      open={show}
+      key={'top'}
+      closable={false}
+      style={{
+        width: 360,
+        height: 120,
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        marginLeft: 'auto',
+        marginRight: 'auto'
+      }}
+      bodyStyle={{
+        display: 'flex',
+        flexDirection: 'column',
+        boxShadow: 'none !important',
+        background: theme.colors.blues.dailyBlue
+      }}
+      contentWrapperStyle={{
+        boxShadow: 'none'
+      }}
+    >
+      <Space direction="vertical">
+        <Link to='/'>
+          <Button
+            block
+            onClick={() => setShow(false)}
+            style={theme.texts.brandFont}
+          >
+            Home
+          </Button>
+        </Link>
+        <Link to='/about'>
+          <Button
+            block
+            onClick={() => setShow(false)}
+            style={theme.texts.brandSubFont}
+          >
+            About
+          </Button>
+        </Link>
+      </Space>
+    </Drawer>
   </NavigationContainer>
  );
 };
