@@ -4,15 +4,19 @@ import {
   useMapEvents
 } from 'react-leaflet'
 import { LatLngLiteral, LocationEvent } from "leaflet";
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { ControledLayers } from './ControledLayers';
 import { LocEvent } from '../../@types';
 import { icon } from '../../utils';
 import { getCitiesByLocation } from '../../api/core/GeoDB';
 
-const LocationMarker = (): null | JSX.Element => {
-  const [position, setPosition] = useState<null | LatLngLiteral>(null);
-
+const LocationMarker = ({
+  position,
+  setPosition
+}: {
+  position: LatLngLiteral | null;
+  setPosition: (pos: LatLngLiteral) => void;
+}): null | JSX.Element => {
   const map = useMapEvents({
     click() {
       if (!position) map.locate();
@@ -34,7 +38,7 @@ const LocationMarker = (): null | JSX.Element => {
   useEffect(() => {
     if (position) {
       console.log('position:', position);
-      getCities(position);
+      // getCities(position);
       // const newLng = position.lng + 0.1;
       // setTimeout(()=>{
       //   map.flyTo({ lat: position.lat, lng: newLng});
