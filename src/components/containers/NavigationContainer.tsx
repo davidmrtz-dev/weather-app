@@ -5,7 +5,7 @@ export const NavigationContainer = styled.div`
   height: 5em;
   background-color: ${props => props.theme.colors.backgroundBlue};
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   padding: 0 30px;
 `;
