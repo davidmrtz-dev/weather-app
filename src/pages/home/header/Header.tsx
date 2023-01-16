@@ -3,6 +3,7 @@ import { LatLngLiteral } from "leaflet";
 import styled from "styled-components";
 import { theme } from "../../../Theme";
 import { BottomContent } from "./BottomContent";
+import { MiddleContent } from "./MiddleContent";
 import { TopContent } from "./TopContent";
 
 const HeaderContainer = styled.div`
@@ -29,7 +30,8 @@ export const Header = ({
     width: '100%'
   }}>
     <TopContent />
-    <BottomContent />
+    <MiddleContent />
+    {/* <BottomContent /> */}
   </div>)
 }
 </HeaderContainer>;
