@@ -5,9 +5,22 @@ import { NavigationContainer } from '../containers/NavigationContainer';
 import { useState } from 'react';
 import { Button, Drawer, Space } from 'antd';
 import { theme } from '../../Theme';
+import { useStyletron } from "styletron-react";
 
 const Navigation = (): JSX.Element => {
+  const [css] = useStyletron();
   const [show, setShow] = useState(false);
+
+  const menuBtnStyles = css({
+    ...theme.texts.brandSubFont,
+    fontWeight: 'bold',
+    background: theme.colors.blues.fancyBlue,
+    borderColor: theme.colors.blues.fancyBlue,
+    color: theme.colors.lightWhite,
+    ':hover': {
+      color: theme.colors.blues.darkBlue
+    }
+  });
 
  return(
   <NavigationContainer>
@@ -53,7 +66,7 @@ const Navigation = (): JSX.Element => {
           <Button
             block
             onClick={() => setShow(false)}
-            style={theme.texts.brandFont}
+            className={menuBtnStyles}
           >
             Home
           </Button>
@@ -62,7 +75,7 @@ const Navigation = (): JSX.Element => {
           <Button
             block
             onClick={() => setShow(false)}
-            style={theme.texts.brandSubFont}
+            className={menuBtnStyles}
           >
             About
           </Button>
