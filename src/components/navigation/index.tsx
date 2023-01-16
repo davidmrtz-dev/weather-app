@@ -1,21 +1,62 @@
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
-
-const NavigationContainer = styled.div`
-  width: 360px;
-  height: 5em;
-  background-color: ${props => props.theme.colors.backgroundBlue};
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  z-index: 401;
-`;
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { NavigationContainer } from '../containers/NavigationContainer';
+import { useState } from 'react';
+import { Button, Drawer, Space } from 'antd';
 
 const Navigation = (): JSX.Element => {
+  const [show, setShow] = useState(false);
+
  return(
   <NavigationContainer>
-    <Link to='/'>Home</Link>
-    <Link to='/about'>About</Link>
+    {!show && (<FontAwesomeIcon
+      size='lg'
+      style={{ cursor: 'pointer' }}
+      icon={faBars} onClick={() => setShow(true)}/>)
+    }
+    {show && (<FontAwesomeIcon
+      size='lg'
+      style={{ cursor: 'pointer' }}
+      icon={faTimes} onClick={() => setShow(false)}/>)
+    }
+    <Drawer
+      placement={'top'}
+      onClose={() => setShow(false)}
+      open={show}
+      key={'top'}
+      closable={false}
+      style={{
+        width: 360,
+        height: 120,
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        marginLeft: 'auto',
+        marginRight: 'auto'
+      }}
+      bodyStyle={{
+        display: 'flex',
+        flexDirection: 'column',
+        boxShadow: 'none !important'
+      }}
+      contentWrapperStyle={{
+        boxShadow: 'none'
+      }}
+    >
+      <Space direction="vertical" style={{ width: '100%' }}>
+        <Link style={{ width: '100% '}} to='/'>
+          <Button block onClick={() => setShow(false)}>
+            Home
+          </Button>
+        </Link>
+        <Link to='/about'>
+          <Button block onClick={() => setShow(false)}>
+            About
+          </Button>
+        </Link>
+      </Space>
+    </Drawer>
   </NavigationContainer>
  );
 };

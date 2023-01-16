@@ -13,7 +13,6 @@ const MainContainer = styled.div`
   background-color: gray;
   display: flex;
   justify-content: center;
-  align-items: center;
   height: 100vh;
 `;
 
