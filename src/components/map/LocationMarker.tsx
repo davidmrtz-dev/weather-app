@@ -4,11 +4,9 @@ import {
   useMapEvents
 } from 'react-leaflet'
 import { LatLngLiteral, LocationEvent } from "leaflet";
-import { useEffect } from 'react';
 import { ControledLayers } from './ControledLayers';
 import { LocEvent } from '../../@types';
 import { icon } from '../../utils';
-import { getCitiesByLocation } from '../../api/core/GeoDB';
 
 const LocationMarker = ({
   position,
@@ -29,23 +27,6 @@ const LocationMarker = ({
       }
     },
   });
-
-  const getCities = async(location: LatLngLiteral): Promise<void> => {
-    const result = await getCitiesByLocation(location, '100');
-    console.log(result);
-  };
-
-  useEffect(() => {
-    if (position) {
-      console.log('position:', position);
-      // getCities(position);
-      // const newLng = position.lng + 0.1;
-      // setTimeout(()=>{
-      //   map.flyTo({ lat: position.lat, lng: newLng});
-      // }, 5000);
-      // setGeocode(position);
-    }
-  }, [position]);
 
   return position === null ? null : (
     <>
