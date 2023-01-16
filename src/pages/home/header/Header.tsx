@@ -31,14 +31,22 @@ const HeaderContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  padding: 0 16px;
 `;
 
 const HeaderContentWrapper = styled.div`
   flex: 1;
-  margin: 5px;
 `;
 
 const HeaderContent = (): JSX.Element => <HeaderContentContainer>
+  <HeaderContentWrapper>
+    <Typography
+      style={{
+        ...theme.texts.brandFont,
+        color: theme.colors.lighterWhite
+      }}
+    >Now in Queretaro</Typography>
+  </HeaderContentWrapper>
   <HeaderContentWrapper
     style={{
       display: 'flex',
@@ -49,14 +57,20 @@ const HeaderContent = (): JSX.Element => <HeaderContentContainer>
     <div style={{
       position: 'relative'
     }}>
-      <Typography style={{...theme.texts.brandH1, color: theme.colors.lighterWhite}}>21</Typography>
       <Typography style={{
-        ...theme.texts.brandSubFont,
+        ...theme.texts.brandH1,
+        color: theme.colors.lighterWhite,
+        fontSize: '5em'
+      }}>
+        21
+      </Typography>
+      <Typography style={{
+        ...theme.texts.brandFont,
         color: theme.colors.lighterWhite,
         fontWeight: 'bold',
         position: 'absolute',
-        top: 0,
-        left: 60,
+        top: 20,
+        left: 90,
         width: 100
       }}>c°</Typography>
     </div>
