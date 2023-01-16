@@ -17,7 +17,7 @@ const Container = styled.div`
 `;
 
 const CitiesContainer = styled.div`
-display: flex;
+  display: flex;
   background-color: gray;
 `;
 
