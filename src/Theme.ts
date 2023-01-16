@@ -10,23 +10,25 @@ export const theme = {
     twelve: 1.2,
   },
   colors: {
-    primary: 'white',
-    secondary: '#0e0033',
-    backgroundBlue: '#e7edfe',
-    darkBlue: '#40489d',
-    brightBlue: '#0736B5',
-    active: '#41489D',
-    brandYellow: '#ffbc25',
-    brandRed: '#D1231C',
-    brandBlack: '#333333',
-    brandGray: '#595959',
-    warning: 'orange',
-    success: '#41489D',
-    danger: '#99262B',
-    rfwPink: '#FF2659',
-    rfwPurple: '#301ECD',
-    rfwGray: '#b2b0b0',
-    rfwSoftGray: 'rgba(0,0,0,0.5)'
+    lightWhite: '#D5D5D6',
+    blues: {
+      fancyBlue: '#8DB0F4',
+      dailyBlue: '#7099E8',
+      transitionBlue: '#5682D7',
+      darkBlue: '#1C4494'
+    },
+    grays: {
+      lighter: '#B8BDBF',
+      light: '#949B9E',
+      normal: '#6F787B',
+      dark: '#54565D',
+      darker: '#38373D'
+    },
+    yellows: {
+      light: '#FDE350',
+      normal: '#F0D745',
+      dark: '#DFCB55'
+    }
   },
   shadows: {
     good: '0px 0px 10px -1px #0736B5',
@@ -106,16 +108,6 @@ export const theme = {
         line-height: 1.25;
         display: block;
         justify: center;
-      `
-    },
-    'rfwMainText': {
-      style: css`
-        color: rgba(0, 0, 0, 0.5);
-        font-family: 'Noto-Sans',Helvetica,Arial,sans-serif;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 2em;
-        line-height: 58px;
       `
     },
     'errorMessage': {
