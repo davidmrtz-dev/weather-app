@@ -4,15 +4,18 @@ import {
   useMapEvents
 } from 'react-leaflet'
 import { LatLngLiteral, LocationEvent } from "leaflet";
-import { useEffect, useState } from 'react';
 import { ControledLayers } from './ControledLayers';
 import { LocEvent } from '../../@types';
 import { icon } from '../../utils';
-import { getCitiesByLocation } from '../../api/core/GeoDB';
+import { useEffect } from 'react';
 
-const LocationMarker = (): null | JSX.Element => {
-  const [position, setPosition] = useState<null | LatLngLiteral>(null);
-
+const LocationMarker = ({
+  position,
+  setPosition
+}: {
+  position: LatLngLiteral | null;
+  setPosition: (pos: LatLngLiteral) => void;
+}): null | JSX.Element => {
   const map = useMapEvents({
     click() {
       if (!position) map.locate();
@@ -26,22 +29,9 @@ const LocationMarker = (): null | JSX.Element => {
     },
   });
 
-  const getCities = async(location: LatLngLiteral): Promise<void> => {
-    const result = await getCitiesByLocation(location, '100');
-    console.log(result);
-  };
-
   useEffect(() => {
-    if (position) {
-      console.log('position:', position);
-      getCities(position);
-      // const newLng = position.lng + 0.1;
-      // setTimeout(()=>{
-      //   map.flyTo({ lat: position.lat, lng: newLng});
-      // }, 5000);
-      // setGeocode(position);
-    }
-  }, [position]);
+    if (position) map.flyTo(position, map.getZoom());
+  }, [position, map]);
 
   return position === null ? null : (
     <>
