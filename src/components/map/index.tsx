@@ -50,7 +50,7 @@ const Map = (): JSX.Element => {
   }, [position]);
 
   useEffect(() => {
-    console.log(nearCities);
+    console.log('nearcities:', nearCities);
   }, [nearCities]);
 
   return(
