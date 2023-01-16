@@ -1,9 +1,9 @@
-import { Image, Typography } from "antd";
+import { Typography } from "antd";
 import { LatLngLiteral } from "leaflet";
 import styled from "styled-components";
-import { LoadingMask } from "../../../atoms/LoadingMask";
-import { ReactComponent as Logo} from '../../../assets/svg/02n.svg';
 import { theme } from "../../../Theme";
+import { BottomContent } from "./BottomContent";
+import { TopContent } from "./TopContent";
 
 const HeaderContainer = styled.div`
   display: flex;
@@ -23,64 +23,17 @@ export const Header = ({
   }}>
     Click on the map
   </Typography>) :
-  (<HeaderContent />)
+  (<div style={{
+    display: 'flex',
+    flexDirection: 'column',
+    width: '100%'
+  }}>
+    <TopContent />
+    <BottomContent />
+  </div>)
 }
 </HeaderContainer>;
 
-const HeaderContentContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  padding: 0 16px;
-`;
 
-const HeaderContentWrapper = styled.div`
-  flex: 1;
-`;
-
-const HeaderContent = (): JSX.Element => <HeaderContentContainer>
-  <HeaderContentWrapper>
-    <Typography
-      style={{
-        ...theme.texts.brandFont,
-        color: theme.colors.lighterWhite
-      }}
-    >Now in Queretaro</Typography>
-  </HeaderContentWrapper>
-  <HeaderContentWrapper
-    style={{
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'space-around'
-    }}
-  >
-    <div style={{
-      position: 'relative'
-    }}>
-      <Typography style={{
-        ...theme.texts.brandH1,
-        color: theme.colors.lighterWhite,
-        fontSize: '5em'
-      }}>
-        21
-      </Typography>
-      <Typography style={{
-        ...theme.texts.brandFont,
-        color: theme.colors.lighterWhite,
-        fontWeight: 'bold',
-        position: 'absolute',
-        top: 20,
-        left: 90,
-        width: 100
-      }}>c°</Typography>
-    </div>
-    <Logo fill={theme.colors.lighterWhite} width={100}/>
-  </HeaderContentWrapper>
-  <HeaderContentWrapper>
-      <Scrollable />
-  </HeaderContentWrapper>
-</HeaderContentContainer>;
-
-const Scrollable = (): JSX.Element => <>hi</>;
 
 

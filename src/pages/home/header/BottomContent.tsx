@@ -1,0 +1,1 @@
+export const BottomContent = (): JSX.Element => <>okok</>;
