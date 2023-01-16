@@ -6,6 +6,7 @@ import NotFound from './pages/not-found';
 import About from './pages/about';
 import Home from './pages';
 import { theme } from './Theme';
+import 'antd/dist/reset.css';
 import './assets/App.css';
 
 const App = (): JSX.Element => {
