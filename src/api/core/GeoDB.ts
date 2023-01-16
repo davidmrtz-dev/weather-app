@@ -1,9 +1,10 @@
 import * as Http from '../Https';
 import { LatLngLiteral } from "leaflet";
 
-const apiKey = 'AIzaSyBzaLAk-UDpkTvnFXOZIJehm0bKglvJQpM';
-
-export const getNearByLocation = async (location: LatLngLiteral): Promise<any> => {
-  const result = await Http.get(`/geocode/json?latlng=${location.lat},${location.lng}&key=${apiKey}`);
+export const getCitiesByLocation = async (location: LatLngLiteral, radius: string): Promise<any> => {
+  const result = await Http.get(
+    `/locations/${location.lat}${location.lng}/nearbyCities`,
+    { radius }
+  );
   return result.data;
 };

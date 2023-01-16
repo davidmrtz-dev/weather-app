@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 import { ControledLayers } from './ControledLayers';
 import { LocEvent } from '../../@types';
 import { icon } from '../../utils';
+import { getCitiesByLocation } from '../../api/core/GeoDB';
 
 const LocationMarker = (): null | JSX.Element => {
   const [position, setPosition] = useState<null | LatLngLiteral>(null);
@@ -25,9 +26,15 @@ const LocationMarker = (): null | JSX.Element => {
     },
   });
 
+  const getCities = async(location: LatLngLiteral): Promise<void> => {
+    const result = await getCitiesByLocation(location, '100');
+    console.log(result);
+  };
+
   useEffect(() => {
     if (position) {
       console.log('position:', position);
+      getCities(position);
       // const newLng = position.lng + 0.1;
       // setTimeout(()=>{
       //   map.flyTo({ lat: position.lat, lng: newLng});
