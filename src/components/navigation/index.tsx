@@ -1,21 +1,24 @@
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
-
-const NavigationContainer = styled.div`
-  width: 360px;
-  height: 5em;
-  background-color: ${props => props.theme.colors.backgroundBlue};
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  z-index: 401;
-`;
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { NavigationContainer } from '../containers/NavigationContainer';
+import { useState } from 'react';
 
 const Navigation = (): JSX.Element => {
+  const [show, setShow] = useState(false);
+
  return(
   <NavigationContainer>
-    <Link to='/'>Home</Link>
-    <Link to='/about'>About</Link>
+    {!show && (<FontAwesomeIcon
+      size='lg'
+      style={{ cursor: 'pointer' }}
+      icon={faBars} onClick={() => setShow(true)}/>)
+    }
+    {show && (<FontAwesomeIcon
+      size='lg'
+      style={{ cursor: 'pointer' }}
+      icon={faTimes} onClick={() => setShow(false)}/>)
+    }
   </NavigationContainer>
  );
 };
