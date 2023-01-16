@@ -11,6 +11,7 @@ const NavigationContainer = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
+  z-index: 401;
 `;
 
 const Navigation = (): JSX.Element => {
