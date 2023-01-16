@@ -55,7 +55,9 @@ const Map = (): JSX.Element => {
   return(
     <Container>
       <CitiesContainer>
-        {nearCities.length > 0 && nearCities.map((city: City) => <NearCity city={city} />)}
+        {nearCities.length > 0 && nearCities.map((city: City) =>
+          <NearCity city={city} onClick={setPosition} />)
+        }
       </CitiesContainer>
       <MapWrapper>
         <MapContainer

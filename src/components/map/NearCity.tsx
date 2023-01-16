@@ -1,3 +1,4 @@
+import { LatLngLiteral } from "leaflet";
 import styled from "styled-components";
 import { City } from "../../@types";
 
@@ -8,7 +9,13 @@ const CityContainer = styled.div`
   background-color: white;
 `;
 
-const NearCity = ({ city }: { city: City }): JSX.Element => <CityContainer>
+const NearCity = ({
+  city,
+  onClick
+}: {
+  city: City;
+  onClick: (pos: LatLngLiteral) => void;
+}): JSX.Element => <CityContainer onClick={() => onClick({ lat: city.latitude, lng: city.longitude })}>
   <ul>
     <li>City: {city.city}</li>
     <li>Country: {city.country}</li>

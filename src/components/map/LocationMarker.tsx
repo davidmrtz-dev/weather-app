@@ -7,6 +7,7 @@ import { LatLngLiteral, LocationEvent } from "leaflet";
 import { ControledLayers } from './ControledLayers';
 import { LocEvent } from '../../@types';
 import { icon } from '../../utils';
+import { useEffect } from 'react';
 
 const LocationMarker = ({
   position,
@@ -27,6 +28,10 @@ const LocationMarker = ({
       }
     },
   });
+
+  useEffect(() => {
+    if (position) map.flyTo(position, map.getZoom());
+  }, [position, map]);
 
   return position === null ? null : (
     <>
