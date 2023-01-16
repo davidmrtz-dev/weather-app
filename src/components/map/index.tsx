@@ -20,16 +20,17 @@ const Container = styled.div`
 
 const CitiesContainer = styled.div`
   width: 100%;
-  height: 100px;
+  min-height: 100px;
   background-color: gray;
   display: flex;
 `;
 
 const MapWrapper = styled.div`
-  padding: 30px;
+  padding: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 400px;
 `;
 
 const Map = (): JSX.Element => {
