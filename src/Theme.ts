@@ -1,5 +1,3 @@
-import { css } from 'styled-components';
-
 export const theme = {
   height: {
     invisible: '0rem',
@@ -41,81 +39,60 @@ export const theme = {
     xl: 1200,
   },
   texts: {
-    'brandFont': {
-      style: css`
-        font-family: 'Poppins',Helvetica,Arial,sans-serif;
-      `,
+    brandFont: {
+      fontFamily: 'Poppins,Helvetica,Arial,sans-serif'
     },
-    'brandSubFont': {
-      style: css`
-        font-family: 'Gilroy', sans-serif;
-      `,
+    brandSubFont: {
+      fontFamily: 'Lato,Helvetica,Arial,sans-serif'
     },
-    'brandH1': {
-      style: css`
-        font-family: "Gilroy",Helvetica,Arial,sans-serif;
-        font-size: 3em;
-        font-weight: bold;
-        line-height: 1.25;
-        margin-top: .5em;
-        line-height: 1.25;
-        display: block;
-        justify: left;
-      `
+    brandH1: {
+      fontFamily: 'Lato,Helvetica,Arial,sans-serif',
+      fontSize: '3em',
+      fontWeight: 'bold',
+      lineHeight: 1.25,
+      marginTop: '.5em',
+      display: 'block',
+      justify: 'left'
     },
-    'brandH2': {
-      style: css`
-        font-family: "Gilroy",Helvetica,Arial,sans-serif;
-        font-size: 2em;
-        font-weight: bold;
-        line-height: 1.25;
-        margin-top: .5em;
-        line-height: 1.25;
-        display: block;
-        justify: left;
-      `
+    brandH2: {
+      fontFamily: 'Lato,Helvetica,Arial,sans-serif',
+      fontSize: '2em',
+      fontWeight: 'bold',
+      lineHeight: 1.25,
+      marginTop: '.5em',
+      display: 'block',
+      justify: 'left',
     },
-    'brandH3': {
-      style: css`
-        font-family: "Gilroy",Helvetica,Arial,sans-serif;
-        font-size: 1.5em;
-        font-weight: bold;
-        line-height: 1.25;
-        margin-top: .5em;
-        line-height: 1.25;
-        display: block;
-        justify: center;
-      `
+    brandH3: {
+      fontFamily: 'Lato,Helvetica,Arial,sans-serif',
+      fontSize: '1.5em',
+      fontWeight: 'bold',
+      lineHeight: 1.25,
+      marginTop: '.5em',
+      display: 'block',
+      justify: 'center',
     },
-    'brandH4': {
-      style: css`
-        font-family: "Gilroy",Helvetica,Arial,sans-serif;
-        font-size: 22rpx;
-        line-height: 1.25;
-        margin-top: .5em;
-        line-height: 1.25;
-        font-weight: bolder;
-        display: block;
-        justify: center;
-      `
+    brandH4: {
+      fontFamily: 'Lato,Helvetica,Arial,sans-serif',
+      fontSize: '22rpx',
+      fontWeight: 'bold',
+      lineHeight: 1.25,
+      marginTop: '.5em',
+      display: 'block',
+      justify: 'center',
     },
-    'brandH5': {
-      style: css`
-        font-family: "Gilroy",Helvetica,Arial,sans-serif;
-        font-size: 16pt;
-        line-height: 1.25;
-        margin-top: .5em;
-        line-height: 1.25;
-        display: block;
-        justify: center;
-      `
+    brandH5: {
+      fontFamily: 'Lato,Helvetica,Arial,sans-serif',
+      fontSize: '16pt',
+      lineHeight: 1.25,
+      marginTop: '.5em',
+      display: 'block',
+      justify: 'center',
     },
-    'errorMessage': {
-      style: css`
-        font-family: 'Noto-Sans',Helvetica,Arial,sans-serif;
-        color: #A10429;
-        font-size: .9em
-      `
+    errorMessage: {
+      fontFamily: 'Poppins,Helvetica,Arial,sans-serif',
+      fontSize: '.9em',
+      color: '#A10429'
     }
   }
 };

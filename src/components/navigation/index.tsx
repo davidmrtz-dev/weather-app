@@ -36,7 +36,7 @@ const Navigation = (): JSX.Element => {
         left: 0,
         right: 0,
         marginLeft: 'auto',
-      marginRight: 'auto'
+        marginRight: 'auto'
       }}
       bodyStyle={{
         display: 'flex',
@@ -48,14 +48,22 @@ const Navigation = (): JSX.Element => {
         boxShadow: 'none'
       }}
     >
-      <Space direction="vertical" style={{ width: '100%' }}>
-        <Link style={{ width: '100% '}} to='/'>
-          <Button block onClick={() => setShow(false)}>
+      <Space direction="vertical">
+        <Link to='/'>
+          <Button
+            block
+            onClick={() => setShow(false)}
+            style={theme.texts.brandFont}
+          >
             Home
           </Button>
         </Link>
         <Link to='/about'>
-          <Button block onClick={() => setShow(false)}>
+          <Button
+            block
+            onClick={() => setShow(false)}
+            style={theme.texts.brandSubFont}
+          >
             About
           </Button>
         </Link>

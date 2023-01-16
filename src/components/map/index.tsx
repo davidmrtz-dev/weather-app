@@ -59,7 +59,7 @@ const Map = (): JSX.Element => {
         <MapContainer
           center={defaultLocation}
           zoom={13}
-          style={{ width: 500, height: 350, zIndex: 1 }}
+          style={{ width: 360, height: 350, zIndex: 1 }}
           dragging={false}
           scrollWheelZoom={false}
         >
