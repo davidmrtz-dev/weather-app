@@ -3,13 +3,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { NavigationContainer } from '../containers/NavigationContainer';
 import { useState } from 'react';
-import { Button, Drawer, Space } from 'antd';
+import { Button, Drawer, Space, Typography } from 'antd';
 import { theme } from '../../Theme';
 import { useStyletron } from "styletron-react";
 
 const Navigation = (): JSX.Element => {
   const [css] = useStyletron();
   const [show, setShow] = useState(false);
+  const [date] = useState(new Date());
 
   const menuBtnStyles = css({
     ...theme.texts.brandSubFont,
@@ -22,8 +23,13 @@ const Navigation = (): JSX.Element => {
     }
   });
 
+  const dateStyles = css({
+    color: theme.colors.lightWhite
+  });
+
  return(
   <NavigationContainer>
+    <Typography className={dateStyles}>Today, {date.toLocaleDateString()}</Typography>
     {!show && (<FontAwesomeIcon
       color={theme.colors.lightWhite}
       size='lg'
