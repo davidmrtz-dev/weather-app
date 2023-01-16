@@ -6,7 +6,7 @@ import Layout from './components/layouts/Layout';
 import Helmet from 'react-helmet';
 import NotFound from './pages/not-found';
 import About from './pages/about';
-import Home from './pages';
+import Home from './pages/home';
 import { theme } from './Theme';
 import 'antd/dist/reset.css';
 import './assets/css/App.css';

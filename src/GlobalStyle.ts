@@ -20,6 +20,9 @@ export const GlobalStyle = createGlobalStyle`
     text-decoration: none;
     color: inherit;
   }
+  .ant-typography {
+    margin: 0;
+  }
   @media print
   {
     .no-print, .no-print *
