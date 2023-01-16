@@ -7,7 +7,7 @@ import About from './pages/about';
 import Home from './pages';
 import { theme } from './Theme';
 import 'antd/dist/reset.css';
-import './assets/App.css';
+import './assets/css/App.css';
 
 const MainContainer = styled.div`
   background-color: gray;

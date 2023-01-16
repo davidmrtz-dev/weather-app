@@ -36,7 +36,7 @@ const Navigation = (): JSX.Element => {
         left: 0,
         right: 0,
         marginLeft: 'auto',
-        marginRight: 'auto'
+      marginRight: 'auto'
       }}
       bodyStyle={{
         display: 'flex',

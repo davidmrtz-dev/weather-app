@@ -43,7 +43,7 @@ export const theme = {
   texts: {
     'brandFont': {
       style: css`
-        font-family: 'Noto-Sans',Helvetica,Arial,sans-serif;
+        font-family: 'Poppins',Helvetica,Arial,sans-serif;
       `,
     },
     'brandSubFont': {
