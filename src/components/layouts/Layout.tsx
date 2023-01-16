@@ -3,7 +3,7 @@ import Navigation from "../navigation";
 
 const Layout = ({ children }: {children: React.ReactNode }): JSX.Element => {
   return(
-    <LayoutContainer id="okok">
+    <LayoutContainer>
       <Navigation />
       {children}
     </LayoutContainer>

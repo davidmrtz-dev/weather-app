@@ -2,10 +2,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const NavigationContainer = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
+  width: 360px;
   height: 5em;
   background-color: ${props => props.theme.colors.backgroundBlue};
   display: flex;
