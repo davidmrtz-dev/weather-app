@@ -17,15 +17,15 @@ const Container = styled.div`
 `;
 
 const CitiesContainer = styled.div`
+display: flex;
   background-color: gray;
-  display: flex;
 `;
 
 const MapWrapper = styled.div`
-  padding: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 20px;
 `;
 
 const Map = (): JSX.Element => {
