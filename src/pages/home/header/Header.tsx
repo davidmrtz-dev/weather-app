@@ -77,8 +77,10 @@ const HeaderContent = (): JSX.Element => <HeaderContentContainer>
     <Logo fill={theme.colors.lighterWhite} width={100}/>
   </HeaderContentWrapper>
   <HeaderContentWrapper>
-
+      <Scrollable />
   </HeaderContentWrapper>
 </HeaderContentContainer>;
+
+const Scrollable = (): JSX.Element => <>hi</>;
 
 
