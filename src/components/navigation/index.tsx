@@ -4,6 +4,7 @@ import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { NavigationContainer } from '../containers/NavigationContainer';
 import { useState } from 'react';
 import { Button, Drawer, Space } from 'antd';
+import { theme } from '../../Theme';
 
 const Navigation = (): JSX.Element => {
   const [show, setShow] = useState(false);
@@ -11,11 +12,13 @@ const Navigation = (): JSX.Element => {
  return(
   <NavigationContainer>
     {!show && (<FontAwesomeIcon
+      color={theme.colors.lightWhite}
       size='lg'
       style={{ cursor: 'pointer' }}
       icon={faBars} onClick={() => setShow(true)}/>)
     }
     {show && (<FontAwesomeIcon
+      color={theme.colors.lightWhite}
       size='lg'
       style={{ cursor: 'pointer' }}
       icon={faTimes} onClick={() => setShow(false)}/>)
@@ -38,20 +41,29 @@ const Navigation = (): JSX.Element => {
       bodyStyle={{
         display: 'flex',
         flexDirection: 'column',
-        boxShadow: 'none !important'
+        boxShadow: 'none !important',
+        background: theme.colors.blues.dailyBlue
       }}
       contentWrapperStyle={{
         boxShadow: 'none'
       }}
     >
-      <Space direction="vertical" style={{ width: '100%' }}>
-        <Link style={{ width: '100% '}} to='/'>
-          <Button block onClick={() => setShow(false)}>
+      <Space direction="vertical">
+        <Link to='/'>
+          <Button
+            block
+            onClick={() => setShow(false)}
+            style={theme.texts.brandFont}
+          >
             Home
           </Button>
         </Link>
         <Link to='/about'>
-          <Button block onClick={() => setShow(false)}>
+          <Button
+            block
+            onClick={() => setShow(false)}
+            style={theme.texts.brandSubFont}
+          >
             About
           </Button>
         </Link>
