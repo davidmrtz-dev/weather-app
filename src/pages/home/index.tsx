@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { City } from '../../@types';
 import { getCitiesByLocation } from '../../api/core/GeoDB';
 import Map from '../../components/map';
+import { Header } from './header/Header';
 
 const Home = (): JSX.Element => {
   const defaultLocation: LatLngLiteral = {lat: 19.274919, lng: -99.147155};
@@ -25,12 +26,15 @@ const Home = (): JSX.Element => {
   }, [nearCities]);
 
   return (
-    <Map
-      defaultLocation={defaultLocation}
-      position={position}
-      nearCities={nearCities}
-      setPosition={setPosition}
-    />
+    <>
+      <Header />
+      <Map
+        defaultLocation={defaultLocation}
+        position={position}
+        nearCities={nearCities}
+        setPosition={setPosition}
+      />
+    </>
   );
 };
 
