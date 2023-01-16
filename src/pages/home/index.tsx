@@ -26,7 +26,9 @@ const Home = (): JSX.Element => {
   }, [nearCities]);
 
   return (
-    <>
+    <div style={{
+      padding: '0 16px'
+    }}>
       <Header
         position={position}
       />
@@ -36,7 +38,7 @@ const Home = (): JSX.Element => {
         nearCities={nearCities}
         setPosition={setPosition}
       />
-    </>
+    </div>
   );
 };
 
