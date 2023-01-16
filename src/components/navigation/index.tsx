@@ -24,6 +24,7 @@ const Navigation = (): JSX.Element => {
   });
 
   const dateStyles = css({
+    ...theme.texts.brandFont,
     color: theme.colors.lightWhite
   });
 

@@ -40,7 +40,8 @@ export const theme = {
   },
   texts: {
     brandFont: {
-      fontFamily: 'Poppins,Helvetica,Arial,sans-serif'
+      fontFamily: 'Poppins,Helvetica,Arial,sans-serif',
+      fontSize: '16px'
     },
     brandSubFont: {
       fontFamily: 'Lato,Helvetica,Arial,sans-serif'
