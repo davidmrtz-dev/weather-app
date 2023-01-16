@@ -12,25 +12,20 @@ import styled from 'styled-components';
 import NearCity from './NearCity';
 
 const Container = styled.div`
-  width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
 `;
 
 const CitiesContainer = styled.div`
-  width: 100%;
-  min-height: 100px;
+display: flex;
   background-color: gray;
-  display: flex;
 `;
 
 const MapWrapper = styled.div`
-  padding: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 400px;
+  padding: 20px;
 `;
 
 const Map = (): JSX.Element => {
