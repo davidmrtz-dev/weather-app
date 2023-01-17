@@ -24,28 +24,15 @@ const Home = (): JSX.Element => {
     setNearCities(result.data);
   };
 
-  useEffect(() => {
-    if (position) {
-      setContent(parseWeatherToContent(mockResponse));
-      getCities(position);
-    }
-  }, [position]);
-
-  useEffect(() => {
-    if (content) {
-    }
-  }, [content]);
-
-  useEffect(() => {
-    console.log('nearcities:', nearCities);
-  }, [nearCities]);
+  // useEffect(() => {
+  //   setContent(parseWeatherToContent(mockResponse));
+  // }, []);
 
   return (
     <div style={{
       padding: '0 16px'
     }}>
       <Header
-        position={position}
         content={content}
       />
       <Map
