@@ -1,6 +1,7 @@
 import { Typography } from "antd";
 import { LatLngLiteral } from "leaflet";
 import styled from "styled-components";
+import { Content } from "../../../@types";
 import { theme } from "../../../Theme";
 import { BottomContent } from "./BottomContent";
 import { MiddleContent } from "./MiddleContent";
@@ -13,9 +14,11 @@ const HeaderContainer = styled.div`
 `;
 
 export const Header = ({
-  position
+  position,
+  content
 }: {
   position: LatLngLiteral | null;
+  content: Content | null
 }): JSX.Element =>  <HeaderContainer>
   {!position ? (<Typography style={{
     ...theme.texts.brandH3,
@@ -30,7 +33,7 @@ export const Header = ({
     width: '100%'
   }}>
     <TopContent />
-    <MiddleContent />
+    <MiddleContent content={content} />
     {/* <BottomContent /> */}
   </div>)
 }
