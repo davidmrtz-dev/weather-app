@@ -2,6 +2,7 @@ import { LatLngLiteral } from 'leaflet';
 import { useEffect, useState } from 'react';
 import { City, Content, mockResponse, WeatherResponse } from '../../@types';
 import { getCitiesByLocation } from '../../api/core/GeoDB';
+import { LoadingMask } from '../../atoms/LoadingMask';
 import Map from '../../components/map';
 import Bottom from './bottom';
 import Header from './header';
@@ -24,22 +25,33 @@ const Home = (): JSX.Element => {
     setNearCities(result.data);
   };
 
-  // useEffect(() => {
-  //   setContent(parseWeatherToContent(mockResponse));
-  //   getCities
-  // }, []);
+  // const getContent = async(): Promise<void> => {
+  //   setTimeout(() => {
+
+  //   }, 3000);
+  // }
+
+  useEffect(() => {
+    setTimeout(() => {
+      console.log('timer finished');
+      setContent(parseWeatherToContent(mockResponse));
+    }, 10000);
+    // getCities
+  }, []);
 
   return (
     <>
       <div style={{
         padding: '0 16px'
       }}>
-        <Header content={content} />
-        <Map position={position} />
-        <Bottom
-          nearCities={nearCities}
-          setPosition={setPosition}
-        />
+        {content ? (<>
+          <Header content={content} />
+          <Map position={position} />
+          <Bottom
+            nearCities={nearCities}
+            setPosition={setPosition}
+          />
+        </>) : (<LoadingMask fixed />)}
       </div>
       <LocationRequester  {...{ open: !position, setPosition: setPosition }}/>
     </>
