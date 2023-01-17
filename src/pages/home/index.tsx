@@ -8,6 +8,8 @@ import Map from '../../components/map';
 import Bottom from './bottom';
 import Header from './header';
 import styled from 'styled-components';
+import { LoadingMask } from '../../atoms/LoadingMask';
+import { theme } from '../../Theme';
 
 
 const parseWeatherToContent = (data: WeatherResponse): Content => ({
@@ -57,10 +59,12 @@ const LocationRequester = ({
 
   useEffect(() => {
     if ('geolocation' in navigator) {
+      console.log('granted!');
       navigator.geolocation.getCurrentPosition((position) => {
         setPosition({ lat: position.coords.latitude, lng: position.coords.longitude });
       });
     } else {
+      console.log('denied!');
       // TODO: Set a default center
     }
   }, []);
@@ -80,16 +84,19 @@ const LocationRequester = ({
       marginRight: 'auto'
     }}
     bodyStyle={{
-      display: 'flex',
-      flexDirection: 'column',
-      boxShadow: 'none !important',
-      background: 'linear-gradient(25deg, rgba(141,176,244,1) 35%, rgba(112,153,232,1) 100%)'
+      background:`
+        linear-gradient(
+          25deg,
+          ${theme.colors.blues.transitionBlue} 35%,
+          ${theme.colors.blues.fancyBlue} 100%)
+      `
     }}
     contentWrapperStyle={{
       width: '100%',
       boxShadow: 'none'
     }}
   >
+    <LoadingMask fixed />
   </Drawer>
   );
 };
