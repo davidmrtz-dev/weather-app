@@ -1,13 +1,9 @@
-import { ReactComponent as Logo} from '../../../assets/svg/02n.svg';
 import { Typography } from "antd";
 import styled from "styled-components";
 import { theme } from "../../../Theme";
 import { Content } from '../../../@types';
 import { toCelsius } from '../../../utils';
-
-const LogoDict ={
-  '10d': <Logo fill={theme.colors.lighterWhite} width={100}/>
-}
+import { LogoDict } from "../../../utils/Logos";
 
 const ContentContainer = styled.div`
   display: flex;
@@ -59,6 +55,6 @@ export const TopContent = ({
         width: 100
       }}>c°</Typography>
     </div>
-    {LogoDict[content.firstSection?.icon as keyof typeof LogoDict]}
+    {LogoDict[content.firstSection?.icon as keyof typeof LogoDict || 'unknown']}
   </ContentWrapper>
 </ContentContainer>) : (<></>);
