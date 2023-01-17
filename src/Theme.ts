@@ -9,6 +9,7 @@ export const theme = {
   },
   colors: {
     lightWhite: '#D5D5D6',
+    lighterWhite: '#FAFAFB',
     blues: {
       fancyBlue: '#8DB0F4',
       dailyBlue: '#7099E8',
@@ -40,7 +41,8 @@ export const theme = {
   },
   texts: {
     brandFont: {
-      fontFamily: 'Poppins,Helvetica,Arial,sans-serif'
+      fontFamily: 'Poppins,Helvetica,Arial,sans-serif',
+      fontSize: '16px'
     },
     brandSubFont: {
       fontFamily: 'Lato,Helvetica,Arial,sans-serif'
@@ -49,8 +51,6 @@ export const theme = {
       fontFamily: 'Lato,Helvetica,Arial,sans-serif',
       fontSize: '3em',
       fontWeight: 'bold',
-      lineHeight: 1.25,
-      marginTop: '.5em',
       display: 'block',
       justify: 'left'
     },
@@ -59,7 +59,6 @@ export const theme = {
       fontSize: '2em',
       fontWeight: 'bold',
       lineHeight: 1.25,
-      marginTop: '.5em',
       display: 'block',
       justify: 'left',
     },
@@ -68,7 +67,6 @@ export const theme = {
       fontSize: '1.5em',
       fontWeight: 'bold',
       lineHeight: 1.25,
-      marginTop: '.5em',
       display: 'block',
       justify: 'center',
     },
@@ -77,7 +75,6 @@ export const theme = {
       fontSize: '22rpx',
       fontWeight: 'bold',
       lineHeight: 1.25,
-      marginTop: '.5em',
       display: 'block',
       justify: 'center',
     },
@@ -85,7 +82,6 @@ export const theme = {
       fontFamily: 'Lato,Helvetica,Arial,sans-serif',
       fontSize: '16pt',
       lineHeight: 1.25,
-      marginTop: '.5em',
       display: 'block',
       justify: 'center',
     },
