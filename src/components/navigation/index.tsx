@@ -17,27 +17,28 @@ const Navigation = (): JSX.Element => {
     fontWeight: 'bold',
     background: theme.colors.blues.fancyBlue,
     borderColor: theme.colors.blues.fancyBlue,
-    color: theme.colors.lightWhite,
+    color: theme.colors.lighterWhite,
     ':hover': {
       color: theme.colors.blues.darkBlue
     }
   });
 
   const dateStyles = css({
-    color: theme.colors.lightWhite
+    ...theme.texts.brandFont,
+    color: theme.colors.lighterWhite
   });
 
  return(
   <NavigationContainer>
     <Typography className={dateStyles}>Today, {date.toLocaleDateString()}</Typography>
     {!show && (<FontAwesomeIcon
-      color={theme.colors.lightWhite}
+      color={theme.colors.lighterWhite}
       size='lg'
       style={{ cursor: 'pointer' }}
       icon={faBars} onClick={() => setShow(true)}/>)
     }
     {show && (<FontAwesomeIcon
-      color={theme.colors.lightWhite}
+      color={theme.colors.lighterWhite}
       size='lg'
       style={{ cursor: 'pointer' }}
       icon={faTimes} onClick={() => setShow(false)}/>)
@@ -61,7 +62,7 @@ const Navigation = (): JSX.Element => {
         display: 'flex',
         flexDirection: 'column',
         boxShadow: 'none !important',
-        background: theme.colors.blues.dailyBlue
+        background: 'linear-gradient(25deg, rgba(141,176,244,1) 35%, rgba(112,153,232,1) 100%)'
       }}
       contentWrapperStyle={{
         boxShadow: 'none'
