@@ -22,7 +22,7 @@ export interface City {
 export interface Content {
   firstSection: Weather | undefined,
   secondSection: Main | undefined,
-  thirdSection: (Main | Wind | Rain | Clouds) | undefined;
+  thirdSection: (Wind | Rain | Clouds) | undefined;
 }
 
 export interface WeatherResponse {
