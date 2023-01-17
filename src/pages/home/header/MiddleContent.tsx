@@ -50,7 +50,7 @@ const LastSection = <T extends ThirdSection | undefined>({item}: {item:T}): JSX.
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        padding: '20px 0'
+        padding: '10px 0'
       }}>
         <Typography style={{
           ...theme.texts.brandH4,

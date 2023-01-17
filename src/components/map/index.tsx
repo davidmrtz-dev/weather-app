@@ -36,11 +36,6 @@ const Map = ({
   nearCities: City [];
   setPosition: (newPos: LatLngLiteral) => void;
 }): JSX.Element => <Container>
-  {/* <CitiesContainer>
-    {nearCities.length > 0 && nearCities.map((city: City) =>
-      <NearCity city={city} onClick={setPosition} />)
-    }
-  </CitiesContainer> */}
   <MapWrapper>
     <MapContainer
       center={defaultLocation}
@@ -56,6 +51,11 @@ const Map = ({
       <LocationMarker position={position} setPosition={setPosition} />
     </MapContainer>
   </MapWrapper>
+  <CitiesContainer>
+    {nearCities.length > 0 && nearCities.map((city: City) =>
+      <NearCity city={city} onClick={setPosition} />)
+    }
+  </CitiesContainer>
 </Container>;
 
 export default Map;
