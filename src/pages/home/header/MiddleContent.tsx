@@ -10,14 +10,19 @@ const ContentContainer = styled.div`
   display: flex;
   height: 150px;
   overflow-x: auto;
+  overflow-y: hidden;
+  margin: 20px 0;
+  background-color: rgba(86, 130, 215, 0.4);
+  border-radius: 10px;
 `;
 
 const ContentItemWrapper = styled.div`
   display: flex;
   min-width: calc(360px - (16px*2));
   height: 100%;
-  background-color: gray;
   margin: 2px;
+  opacity: 1;
+  border-radius: 5px;
 `;
 
 export const MiddleContent = ({
