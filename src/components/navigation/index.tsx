@@ -62,7 +62,11 @@ const Navigation = (): JSX.Element => {
         display: 'flex',
         flexDirection: 'column',
         boxShadow: 'none !important',
-        background: 'linear-gradient(25deg, rgba(141,176,244,1) 35%, rgba(112,153,232,1) 100%)'
+        background:`
+          linear-gradient(25deg,
+          ${theme.colors.blues.transitionBlue} 35%,
+          ${theme.colors.blues.fancyBlue} 100%)
+        `
       }}
       contentWrapperStyle={{
         width: '100%',
