@@ -1,10 +1,9 @@
 import { Typography } from "antd";
 import styled from "styled-components";
 import { Content, Main, ThirdSection, Weather } from "../../../@types";
-import { ReactComponent as FirstLogo } from '../../../assets/svg/04n.svg';
-import { ReactComponent as SecondLogo } from '../../../assets/svg/03n.svg';
 import { theme } from "../../../Theme";
 import { toCelsius } from "../../../utils";
+import { LogoDict } from "../../../utils/Logos";
 
 const ContentContainer = styled.div`
   display: flex;
@@ -89,14 +88,6 @@ const LastSection = <T extends ThirdSection | undefined>({item}: {item:T}): JSX.
           1H: {item["1h"]}
         </Typography>
       </div>
-      <div style={{
-        flex: 1,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center'
-      }}>
-        <SecondLogo fill={theme.colors.lighterWhite} width={100}/>
-      </div>
     </div>)}
   </ContentItemWrapper>);
 };
@@ -140,14 +131,6 @@ const SecondSection = ({ item }: { item: Main | undefined, }): JSX.Element => <C
         Max: {toCelsius(item.temp_max)}
       </Typography>
     </div>
-    <div style={{
-      flex: 1,
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center'
-    }}>
-      <SecondLogo fill={theme.colors.lighterWhite} width={100}/>
-    </div>
   </div>)}
 </ContentItemWrapper>;
 
@@ -180,7 +163,7 @@ const FirstSection = ({ item }: { item: Weather | undefined, }): JSX.Element => 
       alignItems: 'center',
       justifyContent: 'center'
     }}>
-      <FirstLogo fill={theme.colors.lighterWhite} width={100}/>
+      {LogoDict[item?.icon as keyof typeof LogoDict || 'unknown']}
     </div>
   </div>)}
 </ContentItemWrapper>;
