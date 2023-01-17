@@ -16,10 +16,8 @@ const MapWrapper = styled.div`
 
 const Map = ({
   position,
-  setPosition
 }: {
   position: LatLngLiteral | null;
-  setPosition: (newPos: LatLngLiteral) => void;
 }): JSX.Element => <MapWrapper>
   <MapContainer
     center={{lat: 19.274919, lng: -99.147155}}
@@ -32,7 +30,7 @@ const Map = ({
       attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
     />
-    <LocationMarker position={position} setPosition={setPosition} />
+    <LocationMarker position={position} />
   </MapContainer>
 </MapWrapper>;
 

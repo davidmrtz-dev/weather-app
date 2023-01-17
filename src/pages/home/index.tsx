@@ -35,13 +35,8 @@ const Home = (): JSX.Element => {
       <div style={{
         padding: '0 16px'
       }}>
-        <Header
-          content={content}
-        />
-        <Map
-          position={position}
-          setPosition={setPosition}
-        />
+        <Header content={content} />
+        <Map position={position} />
         <Bottom
           nearCities={nearCities}
           setPosition={setPosition}
