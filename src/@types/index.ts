@@ -19,10 +19,12 @@ export interface City {
   type: string;
   wikiDataId: string;
 };
+
+export interface ThirdSection extends Wind, Rain, Clouds {};
 export interface Content {
   firstSection: Weather | undefined,
   secondSection: Main | undefined,
-  thirdSection: (Wind | Rain | Clouds) | undefined;
+  thirdSection: ThirdSection | undefined;
 }
 
 export interface WeatherResponse {

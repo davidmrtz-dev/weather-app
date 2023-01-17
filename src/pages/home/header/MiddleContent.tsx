@@ -1,6 +1,6 @@
 import { Typography } from "antd";
 import styled from "styled-components";
-import { Clouds, Content, Main, Rain, Weather, Wind } from "../../../@types";
+import { Content, Main, ThirdSection, Weather } from "../../../@types";
 import { ReactComponent as FirstLogo } from '../../../assets/svg/04n.svg';
 import { ReactComponent as SecondLogo } from '../../../assets/svg/03n.svg';
 import { theme } from "../../../Theme";
@@ -28,59 +28,73 @@ export const MiddleContent = ({
   return(<ContentContainer>
     {content?.firstSection &&  <FirstSection item={content.firstSection}/>}
     {content?.secondSection &&  <SecondSection item={content.secondSection}/>}
-    {/* {content?.thirdSection &&  <ThirdSection item={content.thirdSection}/>} */}
+    {content?.thirdSection &&  <LastSection item={content.thirdSection}/>}
   </ContentContainer>);
 };
 
-// const ThirdSection = ({ item }: { item: (Wind | Rain | Clouds) | undefined, }): JSX.Element => <ContentItemWrapper>
-//   {item && (<div style={{
-//     width: '100%',
-//     height: '100%',
-//     display: 'flex'
-//   }}>
-//     <div style={{
-//       flex: 1,
-//       flexDirection: 'column',
-//       display: 'flex',
-//       alignItems: 'center',
-//       justifyContent: 'space-between',
-//       padding: '20px 0'
-//     }}>
-//       <Typography style={{
-//         ...theme.texts.brandFont,
-//         color: theme.colors.lighterWhite
-//       }}>
-//         Wind speed: {toCelsius(item?.speed)}
-//       </Typography>
-//       <Typography style={{
-//         ...theme.texts.brandFont,
-//         color: theme.colors.lighterWhite
-//       }}>
-//         Feels like: {toCelsius(item.feels_like)}
-//       </Typography>
-//       <Typography style={{
-//         ...theme.texts.brandFont,
-//         color: theme.colors.lighterWhite
-//       }}>
-//         Min: {toCelsius(item.temp_min)}
-//       </Typography>
-//       <Typography style={{
-//         ...theme.texts.brandFont,
-//         color: theme.colors.lighterWhite
-//       }}>
-//         Max: {toCelsius(item.temp_max)}
-//       </Typography>
-//     </div>
-//     <div style={{
-//       flex: 1,
-//       display: 'flex',
-//       alignItems: 'center',
-//       justifyContent: 'center'
-//     }}>
-//       <SecondLogo fill={theme.colors.lighterWhite} width={100}/>
-//     </div>
-//   </div>)}
-// </ContentItemWrapper>;
+const LastSection = <T extends ThirdSection | undefined>({item}: {item:T}): JSX.Element => {
+  return(<ContentItemWrapper>
+    {item && (<div style={{
+      width: '100%',
+      height: '100%',
+      display: 'flex'
+    }}>
+      <div style={{
+        flex: 1,
+        flexDirection: 'column',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        padding: '20px 0'
+      }}>
+        <Typography style={{
+          ...theme.texts.brandH4,
+          color: theme.colors.lightWhite
+        }}>
+          WIND
+        </Typography>
+        <Typography style={{
+          ...theme.texts.brandSubFont,
+          color: theme.colors.lighterWhite
+        }}>
+          Wind speed: {item.speed}
+        </Typography>
+        <Typography style={{
+          ...theme.texts.brandSubFont,
+          color: theme.colors.lighterWhite
+        }}>
+          Wind deg: {item.deg}
+        </Typography>
+        <Typography style={{
+          ...theme.texts.brandSubFont,
+          color: theme.colors.lighterWhite
+        }}>
+          Wind gust: {item.gust}
+        </Typography>
+        <Typography style={{
+          ...theme.texts.brandH4,
+          color: theme.colors.lightWhite
+        }}>
+          RAIN
+        </Typography>
+        <Typography style={{
+          ...theme.texts.brandSubFont,
+          color: theme.colors.lighterWhite
+        }}>
+          1H: {item["1h"]}
+        </Typography>
+      </div>
+      <div style={{
+        flex: 1,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
+      }}>
+        <SecondLogo fill={theme.colors.lighterWhite} width={100}/>
+      </div>
+    </div>)}
+  </ContentItemWrapper>);
+};
 
 const SecondSection = ({ item }: { item: Main | undefined, }): JSX.Element => <ContentItemWrapper>
   {item && (<div style={{

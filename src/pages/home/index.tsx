@@ -10,7 +10,7 @@ import { Header } from './header/Header';
 const parseWeatherToContent = (data: WeatherResponse): Content => ({
   firstSection: data.weather ? data.weather[0] : undefined,
   secondSection: data.main,
-  thirdSection: {...data.wind, ...data.rain, ...data.clouds}
+  thirdSection: data.wind && data.rain && data.clouds ? {...data.wind, ...data.rain, ...data.clouds} : undefined
 });
 
 const Home = (): JSX.Element => {
