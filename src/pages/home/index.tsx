@@ -15,7 +15,6 @@ const parseWeatherToContent = (data: WeatherResponse): Content => ({
 });
 
 const Home = (): JSX.Element => {
-  const defaultLocation: LatLngLiteral = {lat: 19.274919, lng: -99.147155};
   const [position, setPosition] = useState<null | LatLngLiteral>(null);
   const [nearCities, setNearCities] = useState<City []>([]);
   const [content, setContent] = useState<Content | null>(null);
@@ -28,7 +27,7 @@ const Home = (): JSX.Element => {
   useEffect(() => {
     if (position) {
       setContent(parseWeatherToContent(mockResponse));
-      // getCities(position);
+      getCities(position);
     }
   }, [position]);
 
@@ -50,12 +49,13 @@ const Home = (): JSX.Element => {
         content={content}
       />
       <Map
-        defaultLocation={defaultLocation}
         position={position}
+        setPosition={setPosition}
+      />
+      <Bottom
         nearCities={nearCities}
         setPosition={setPosition}
       />
-      <Bottom />
     </div>
   );
 };

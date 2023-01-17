@@ -14,6 +14,7 @@ const MainContainer = styled.div`
   background-color: ${props => props.theme.colors.grays.light};
   display: flex;
   justify-content: center;
+  min-height: 100vh;
 `;
 
 const debug =
