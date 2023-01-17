@@ -1,0 +1,57 @@
+import { Drawer } from 'antd';
+import { LatLngLiteral } from 'leaflet';
+import { useEffect } from 'react';
+import { LoadingMask } from '../../../atoms/LoadingMask';
+import { theme } from '../../../Theme';
+
+export const LocationRequester = ({
+  open,
+  setPosition
+}: {
+  open: boolean;
+  setPosition: (newPos: LatLngLiteral) => void;
+}): JSX.Element => {
+
+  useEffect(() => {
+    if ('geolocation' in navigator) {
+      console.log('granted!');
+      navigator.geolocation.getCurrentPosition((position) => {
+        setPosition({ lat: position.coords.latitude, lng: position.coords.longitude });
+      });
+    } else {
+      console.log('denied!');
+      // TODO: Set a default center
+    }
+  }, []);
+
+  return(<Drawer
+    placement={'left'}
+    open={open}
+    key={'top'}
+    closable={false}
+    style={{
+      width: 360,
+      height: '100%',
+      position: 'absolute',
+      left: 0,
+      right: 0,
+      marginLeft: 'auto',
+      marginRight: 'auto'
+    }}
+    bodyStyle={{
+      background:`
+        linear-gradient(
+          25deg,
+          ${theme.colors.blues.transitionBlue} 35%,
+          ${theme.colors.blues.fancyBlue} 100%)
+      `
+    }}
+    contentWrapperStyle={{
+      width: '100%',
+      boxShadow: 'none'
+    }}
+  >
+    <LoadingMask fixed />
+  </Drawer>
+  );
+};
