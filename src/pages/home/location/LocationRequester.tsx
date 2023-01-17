@@ -3,6 +3,8 @@ import { LatLngLiteral } from 'leaflet';
 import { useEffect } from 'react';
 import { LoadingMask } from '../../../atoms/LoadingMask';
 import { theme } from '../../../Theme';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUmbrella } from '@fortawesome/free-solid-svg-icons';
 
 export const LocationRequester = ({
   open,
@@ -44,13 +46,23 @@ export const LocationRequester = ({
           25deg,
           ${theme.colors.blues.transitionBlue} 35%,
           ${theme.colors.blues.fancyBlue} 100%)
-      `
+      `,
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center'
     }}
     contentWrapperStyle={{
       width: '100%',
       boxShadow: 'none'
     }}
   >
+    <FontAwesomeIcon
+      color={theme.colors.lighterWhite}
+      fill={theme.colors.lighterWhite}
+      size='3x'
+      icon={faUmbrella}
+      style={{ zIndex: 1000 }}
+    />
     <LoadingMask fixed />
   </Drawer>
   );
