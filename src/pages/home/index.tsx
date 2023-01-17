@@ -33,7 +33,6 @@ const Home = (): JSX.Element => {
 
   useEffect(() => {
     if (content) {
-      debugger;
     }
   }, [content]);
 
