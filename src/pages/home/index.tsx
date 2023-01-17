@@ -3,7 +3,8 @@ import { useEffect, useState } from 'react';
 import { City, Content, mockResponse, WeatherResponse } from '../../@types';
 import { getCitiesByLocation } from '../../api/core/GeoDB';
 import Map from '../../components/map';
-import { Header } from './header/Header';
+import Bottom from './bottom';
+import Header from './header';
 
 
 
@@ -54,6 +55,7 @@ const Home = (): JSX.Element => {
         nearCities={nearCities}
         setPosition={setPosition}
       />
+      <Bottom />
     </div>
   );
 };

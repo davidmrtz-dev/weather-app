@@ -22,7 +22,7 @@ const ContentItemWrapper = styled.div`
   height: 100%;
   margin: 2px;
   opacity: 1;
-  border-radius: 5px;
+  border-radius: 10px;
 `;
 
 export const MiddleContent = ({
