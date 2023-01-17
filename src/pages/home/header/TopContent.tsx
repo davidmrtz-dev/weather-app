@@ -10,6 +10,7 @@ const ContentContainer = styled.div`
 `;
 
 const ContentWrapper = styled.div`
+  padding-top: 10px;
   flex: 1;
 `;
 
