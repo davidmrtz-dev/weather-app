@@ -3,7 +3,6 @@ import { LatLngLiteral } from "leaflet";
 import styled from "styled-components";
 import { Content } from "../../../@types";
 import { theme } from "../../../Theme";
-import { BottomContent } from "./BottomContent";
 import { MiddleContent } from "./MiddleContent";
 import { TopContent } from "./TopContent";
 
@@ -13,7 +12,7 @@ const HeaderContainer = styled.div`
   align-items: center;
 `;
 
-export const Header = ({
+const Header = ({
   position,
   content
 }: {
@@ -34,10 +33,11 @@ export const Header = ({
   }}>
     <TopContent />
     <MiddleContent content={content} />
-    {/* <BottomContent /> */}
   </div>)
 }
 </HeaderContainer>;
+
+export default Header;
 
 
 
