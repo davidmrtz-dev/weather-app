@@ -19,7 +19,7 @@ const Header = ({
     flexDirection: 'column',
     width: '100%'
   }}>
-    <TopContent />
+    <TopContent content={content} />
     <MiddleContent content={content} />
   </div>
 </HeaderContainer>;

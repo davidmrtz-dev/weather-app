@@ -6,5 +6,5 @@ export const icon = new L.Icon({
   iconAnchor: [13, 17],
 });
 
-export const toCelsius = (n: number | undefined ) =>
-  n ? (Math.abs(n) - 273.15).toFixed(2) : 0;
+export const toCelsius = (n: number | undefined, fix?: number ) =>
+  n ? (Math.abs(n) - 273.15).toFixed(fix || 2) : 0;
