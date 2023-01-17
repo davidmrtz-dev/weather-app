@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faTimes, faUmbrella } from '@fortawesome/free-solid-svg-icons';
 import { NavigationContainer } from '../containers/NavigationContainer';
 import { useState } from 'react';
 import { Button, Drawer, Space, Typography } from 'antd';
@@ -17,6 +17,7 @@ const Navigation = (): JSX.Element => {
     fontWeight: 'bold',
     background: theme.colors.blues.fancyBlue,
     borderColor: theme.colors.blues.fancyBlue,
+    textAlign: 'initial',
     color: theme.colors.lighterWhite,
     ':hover': {
       color: theme.colors.blues.darkBlue
@@ -51,7 +52,7 @@ const Navigation = (): JSX.Element => {
       closable={false}
       style={{
         width: 360,
-        height: 120,
+        height: 150,
         position: 'absolute',
         left: 0,
         right: 0,
@@ -69,7 +70,6 @@ const Navigation = (): JSX.Element => {
         `
       }}
       contentWrapperStyle={{
-        width: '100%',
         boxShadow: 'none'
       }}
     >
@@ -92,6 +92,26 @@ const Navigation = (): JSX.Element => {
             About
           </Button>
         </Link>
+        <div style={{
+          width: '100%',
+          display: 'flex',
+          justifyContent: 'center'
+        }}>
+          <FontAwesomeIcon
+            color={theme.colors.lighterWhite}
+            fill={theme.colors.lighterWhite}
+            size='2x'
+            icon={faUmbrella}
+          />
+          <Typography style={{
+            ...theme.texts.brandSubFont,
+            color: theme.colors.lighterWhite,
+            padding: 5
+          }}
+          >
+            Weather App
+          </Typography>
+        </div>
       </Space>
     </Drawer>
   </NavigationContainer>
