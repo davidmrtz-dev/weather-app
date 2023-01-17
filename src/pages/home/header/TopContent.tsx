@@ -5,6 +5,10 @@ import { theme } from "../../../Theme";
 import { Content } from '../../../@types';
 import { toCelsius } from '../../../utils';
 
+const LogoDict ={
+  '10d': <Logo fill={theme.colors.lighterWhite} width={100}/>
+}
+
 const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -55,6 +59,6 @@ export const TopContent = ({
         width: 100
       }}>c°</Typography>
     </div>
-    <Logo fill={theme.colors.lighterWhite} width={100}/>
+    {LogoDict[content.firstSection?.icon as keyof typeof LogoDict]}
   </ContentWrapper>
 </ContentContainer>) : (<></>);
