@@ -33,9 +33,8 @@ const Home = (): JSX.Element => {
 
   useEffect(() => {
     setTimeout(() => {
-      console.log('timer finished');
       setContent(parseWeatherToContent(mockResponse));
-    }, 10000);
+    }, 3000);
     // getCities
   }, []);
 
