@@ -11,10 +11,10 @@ import { theme } from './Theme';
 import 'antd/dist/reset.css';
 import './assets/css/App.css';
 const MainContainer = styled.div`
-  background-color: gray;
+  background-color: ${props => props.theme.colors.grays.light};
   display: flex;
   justify-content: center;
-  height: 100vh;
+  min-height: 100vh;
 `;
 
 const debug =
