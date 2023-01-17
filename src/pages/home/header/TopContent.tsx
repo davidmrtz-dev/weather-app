@@ -10,12 +10,11 @@ const ContentContainer = styled.div`
 `;
 
 const ContentWrapper = styled.div`
-  padding-top: 10px;
   flex: 1;
 `;
 
 export const TopContent = (): JSX.Element => <ContentContainer>
-  <ContentWrapper>
+  <ContentWrapper style={{ paddingTop: '10px' }}>
     <Typography
       style={{
         ...theme.texts.brandFont,

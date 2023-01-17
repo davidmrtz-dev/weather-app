@@ -12,7 +12,9 @@ const ContentContainer = styled.div`
   border-radius: 10px;
   justify-content: center;
   align-items: center;
-  `;
+  background-color: rgba(86, 130, 215, 0.4);
+  height: 150px;
+`;
 
   const ContentItemWrapper = styled.div`
   display: flex;
