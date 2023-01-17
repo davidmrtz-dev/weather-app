@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactLoadingR, { LoadingProps } from 'react-loading';
 import styled from 'styled-components';
+import { theme } from '../Theme';
 
 interface ReactLoadingFix extends React.Component<LoadingProps> {};
 
@@ -16,7 +17,7 @@ const Mask = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 9999;
+  z-index: 999;
 `;
 
 export const LoadingMask = (props: {
@@ -29,7 +30,7 @@ export const LoadingMask = (props: {
 }}>
   <ReactLoading
     type='spin'
-    color={'white'}
+    color={theme.colors.lighterWhite}
     height={props.height || 90}
     width={props.width || 90}
   />
