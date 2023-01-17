@@ -65,6 +65,7 @@ const Navigation = (): JSX.Element => {
         background: 'linear-gradient(25deg, rgba(141,176,244,1) 35%, rgba(112,153,232,1) 100%)'
       }}
       contentWrapperStyle={{
+        width: '100%',
         boxShadow: 'none'
       }}
     >
