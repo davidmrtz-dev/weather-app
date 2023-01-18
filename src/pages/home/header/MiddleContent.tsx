@@ -5,17 +5,6 @@ import { theme } from "../../../Theme";
 import { capitalizeFirst, toCelsius } from "../../../utils";
 import { LogoDict } from "../../../utils/Logos";
 
-const ContentContainer = styled.div`
-  display: flex;
-  height: 150px;
-  overflow-x: auto;
-  overflow-y: hidden;
-  margin: 20px 0;
-  border-radius: 10px;
-  gap: 20px;
-  cursor: default;
-`;
-
 const ContentItemWrapper = styled.div`
   background-color: rgb(111, 120, 123, .5);
   display: flex;
