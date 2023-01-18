@@ -3,6 +3,7 @@ import { LatLngLiteral } from "leaflet";
 import styled from "styled-components";
 import { City, validCityKeys } from "../../../@types";
 import { theme } from "../../../Theme";
+import { capitalizeFirst } from "../../../utils";
 
 const ContentContainer = styled.div`
   display: flex;
@@ -43,7 +44,7 @@ const Bottom = ({
         color: theme.colors.lighterWhite
       }}
     >
-      <strong>{key}:</strong> {city[key as keyof typeof city].toString()}
+      <strong>{capitalizeFirst(key)}:</strong> {city[key as keyof typeof city].toString()}
     </Typography>)}
   </ContentItemWrapper>)}
 </ContentContainer>;

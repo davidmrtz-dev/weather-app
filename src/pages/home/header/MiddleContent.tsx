@@ -2,7 +2,7 @@ import { Typography } from "antd";
 import styled from "styled-components";
 import { Content, Main, ThirdSection, Weather } from "../../../@types";
 import { theme } from "../../../Theme";
-import { toCelsius } from "../../../utils";
+import { capitalizeFirst, toCelsius } from "../../../utils";
 import { LogoDict } from "../../../utils/Logos";
 
 const ContentContainer = styled.div`
@@ -155,7 +155,7 @@ const FirstSection = ({ item }: { item: Weather | undefined, }): JSX.Element => 
       <Typography style={{
         ...theme.texts.brandFont,
         color: theme.colors.lighterWhite
-      }}>{item.description}</Typography>
+      }}>{capitalizeFirst(item.description)}</Typography>
     </div>
     <div style={{
       flex: 1,
