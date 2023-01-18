@@ -6,7 +6,7 @@ import { GlobalStyle } from "./GlobalStyle";
 ReactDOM.render(
   <>
     <GlobalStyle />
-    <BrowserRouter basename={process.env.NODE_ENV === 'development' ? '' : '/app'}>
+    <BrowserRouter>
       <App />
     </BrowserRouter>
   </>, document.getElementById('root')
