@@ -61,6 +61,23 @@ const About = (): JSX.Element => {
         href='https://www.behance.net/Bruna_Atanes'
         text=' Bruna Atanes'
       />.
+      <br/>
+      <br/>
+      <strong>Built by:</strong><br/>
+      <strong>David Martinez</strong>.<br/>
+      <strong>Networks:</strong><br/>
+      <LinkComponent
+        href='https://www.linkedin.com/in/davidmrtz-dev/'
+        text='LinkedIn'
+      />,
+      <LinkComponent
+        href='https://github.com/davidmrtz-dev'
+        text=' GitHub'
+      />,
+      <LinkComponent
+        href='https://david-martinez-dev.netlify.app/'
+        text=' Portfolio'
+      />.
     </Typography>
 </AboutContainer>);
 };
