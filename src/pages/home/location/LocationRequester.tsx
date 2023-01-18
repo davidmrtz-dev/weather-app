@@ -22,7 +22,7 @@ export const LocationRequester = ({
     } else {
       // TODO: Set a default center
     }
-  }, []);
+  }, [setPosition]);
 
   return(<Drawer
     placement={'left'}
