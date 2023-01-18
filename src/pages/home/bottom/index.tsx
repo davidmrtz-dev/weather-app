@@ -1,7 +1,7 @@
 import { Typography } from "antd";
 import { LatLngLiteral } from "leaflet";
 import styled from "styled-components";
-import { City } from "../../../@types";
+import { City, validCityKeys } from "../../../@types";
 import { theme } from "../../../Theme";
 
 const ContentContainer = styled.div`
@@ -13,7 +13,6 @@ const ContentContainer = styled.div`
   justify-content: center;
   align-items: center;
   background-color: rgba(86, 130, 215, 0.4);
-  height: 150px;
 `;
 
   const ContentItemWrapper = styled.div`
@@ -26,7 +25,6 @@ const ContentContainer = styled.div`
   opacity: 1;
   border-radius: 10px;
   justify-content: center;
-  align-items: center;
 `;
 
 const Bottom = ({
@@ -39,7 +37,7 @@ const Bottom = ({
   {nearCities.length > 0 && nearCities.map((city: City) => <ContentItemWrapper
     onClick={() => setPosition({ lat: city.latitude, lng: city.longitude })}
   >
-    {Object.keys(city).map((key) => <Typography
+    {Object.keys(city).filter(k => validCityKeys.includes(k)).map((key) => <Typography
       style={{
         ...theme.texts.brandSubFont,
         color: theme.colors.lighterWhite
