@@ -10,16 +10,21 @@ const HeaderContainer = styled.div`
 `;
 
 const Header = ({
-  content
+  content,
+  region
 }: {
-  content: Content | null
+  content: Content | null;
+  region: string;
 }): JSX.Element =>  <HeaderContainer>
   <div style={{
     display: 'flex',
     flexDirection: 'column',
     width: '100%'
   }}>
-    <TopContent content={content} />
+    <TopContent
+      content={content}
+      region={region}
+    />
     <MiddleContent content={content} />
   </div>
 </HeaderContainer>;
