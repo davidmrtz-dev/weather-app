@@ -1,8 +1,9 @@
 import { Typography } from "antd";
 import { LatLngLiteral } from "leaflet";
 import styled from "styled-components";
-import { City } from "../../../@types";
+import { City, validCityKeys } from "../../../@types";
 import { theme } from "../../../Theme";
+import { capitalizeFirst } from "../../../utils";
 
 const ContentContainer = styled.div`
   display: flex;
@@ -12,8 +13,8 @@ const ContentContainer = styled.div`
   border-radius: 10px;
   justify-content: center;
   align-items: center;
-  background-color: rgba(86, 130, 215, 0.4);
-  height: 150px;
+  gap: 20px;
+  cursor: default;
 `;
 
   const ContentItemWrapper = styled.div`
@@ -21,12 +22,13 @@ const ContentContainer = styled.div`
   flex-direction: column;
   min-width: calc(360px - (20px*2));
   height: 90%;
-  background-color: rgba(86, 130, 215, 0.4);
+  background-color: rgb(111, 120, 123, .5);
   margin: 2px;
   opacity: 1;
   border-radius: 10px;
   justify-content: center;
-  align-items: center;
+  padding: 15px;
+  cursor: pointer;
 `;
 
 const Bottom = ({
@@ -39,13 +41,13 @@ const Bottom = ({
   {nearCities.length > 0 && nearCities.map((city: City) => <ContentItemWrapper
     onClick={() => setPosition({ lat: city.latitude, lng: city.longitude })}
   >
-    {Object.keys(city).map((key) => <Typography
+    {Object.keys(city).filter(k => validCityKeys.includes(k)).map((key) => <Typography
       style={{
         ...theme.texts.brandSubFont,
         color: theme.colors.lighterWhite
       }}
     >
-      <strong>{key}:</strong> {city[key as keyof typeof city].toString()}
+      <strong>{capitalizeFirst(key)}:</strong> {city[key as keyof typeof city].toString()}
     </Typography>)}
   </ContentItemWrapper>)}
 </ContentContainer>;

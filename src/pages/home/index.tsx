@@ -33,9 +33,15 @@ const Home = (): JSX.Element => {
 
   useEffect(() => {
     if (position && content) {
-      // getCities(position);
+      getCities(position);
     }
   }, [position, content]);
+
+  useEffect(() => {
+    if (nearCities) {
+      // debugger;
+    }
+  }, [nearCities]);
 
   return (
     <>

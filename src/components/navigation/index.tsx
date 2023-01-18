@@ -95,7 +95,8 @@ const Navigation = (): JSX.Element => {
         <div style={{
           width: '100%',
           display: 'flex',
-          justifyContent: 'center'
+          justifyContent: 'center',
+          cursor: 'default'
         }}>
           <FontAwesomeIcon
             color={theme.colors.lighterWhite}

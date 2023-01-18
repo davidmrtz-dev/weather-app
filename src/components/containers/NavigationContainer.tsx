@@ -9,4 +9,5 @@ export const NavigationContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 0 30px;
+  cursor: default;
 `;
