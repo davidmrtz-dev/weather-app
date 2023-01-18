@@ -1,41 +1,29 @@
-import { Typography } from "antd";
+import { Carousel, Typography } from "antd";
 import styled from "styled-components";
 import { Content, Main, ThirdSection, Weather } from "../../../@types";
 import { theme } from "../../../Theme";
 import { capitalizeFirst, toCelsius } from "../../../utils";
 import { LogoDict } from "../../../utils/Logos";
 
-const ContentContainer = styled.div`
-  display: flex;
-  height: 150px;
-  overflow-x: auto;
-  overflow-y: hidden;
-  margin: 20px 0;
-  border-radius: 10px;
-  gap: 20px;
-  cursor: default;
-`;
-
 const ContentItemWrapper = styled.div`
-  background-color: rgb(111, 120, 123, .5);
+  background-color: rgb(111, 120, 123, .4);
   display: flex;
   min-width: calc(360px - (16px*2));
-  height: 100%;
+  height: 200px;
   opacity: 1;
   border-radius: 10px;
+  padding: 20px 0 40px;
 `;
 
 export const MiddleContent = ({
   content
 }: {
   content: Content | null
-}): JSX.Element => {
-  return(<ContentContainer>
-    {content?.firstSection &&  <FirstSection item={content.firstSection}/>}
-    {content?.secondSection &&  <SecondSection item={content.secondSection}/>}
-    {content?.thirdSection &&  <LastSection item={content.thirdSection}/>}
-  </ContentContainer>);
-};
+}): JSX.Element => <Carousel autoplay>
+      {content?.firstSection &&  <FirstSection item={content.firstSection}/>}
+      {content?.secondSection &&  <SecondSection item={content.secondSection}/>}
+      {content?.thirdSection &&  <LastSection item={content.thirdSection}/>}
+</Carousel>;
 
 const LastSection = <T extends ThirdSection | undefined>({item}: {item:T}): JSX.Element => {
   return(<ContentItemWrapper>
