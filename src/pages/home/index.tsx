@@ -37,6 +37,12 @@ const Home = (): JSX.Element => {
     if (nearCities.length > 0 && !region) setRegion(nearCities[0].region);
   }, [position, content, nearCities, region]);
 
+  useEffect(() => {
+    if (position) {
+      console.log('fetched cities!');
+    }
+  }, [position]);
+
   return (
     <>
       <div style={{
