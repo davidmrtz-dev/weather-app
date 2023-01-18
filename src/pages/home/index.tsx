@@ -25,18 +25,17 @@ const Home = (): JSX.Element => {
     setNearCities(result.data);
   };
 
-  // const getContent = async(): Promise<void> => {
-  //   setTimeout(() => {
-
-  //   }, 3000);
-  // }
-
   useEffect(() => {
     setTimeout(() => {
       setContent(parseWeatherToContent(mockResponse));
     }, 3000);
-    // getCities
   }, []);
+
+  useEffect(() => {
+    if (position && content) {
+      // getCities(position);
+    }
+  }, [position, content]);
 
   return (
     <>
