@@ -57,7 +57,7 @@ const Home = (): JSX.Element => {
       <div style={{
         padding: '0 16px'
       }}>
-        {content ? (<>
+        {(content && position) ? (<>
           <Header
             content={content}
             region={region}
