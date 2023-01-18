@@ -27,6 +27,11 @@ const Home = (): JSX.Element => {
     setNearCities(result.data);
   };
 
+  // const getWeather = async(location: LatLngLiteral): Promise<void> => {
+  //   const result = await getWeatherByLocation(location);
+  //   setContent(parseWeatherToContent(result));
+  // };
+
   useEffect(() => {
     setTimeout(() => {
       setContent(parseWeatherToContent(mockResponse));
