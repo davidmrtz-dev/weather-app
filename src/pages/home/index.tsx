@@ -24,20 +24,22 @@ const Home = (): JSX.Element => {
   const [updateTop, setUpdateTop] = useState(false);
 
   const getCities = async(location: LatLngLiteral): Promise<void> => {
-    const result = await getCitiesByLocation(location, '100');
-    setNearCities(result.data);
+    try {
+      const result = await getCitiesByLocation(location, '100');
+      setNearCities(result.data);
+    } catch(e) {
+      console.log('There was an unexpected error');
+    }
   };
 
   const getWeather = async(location: LatLngLiteral): Promise<void> => {
-    const result = await getWeatherByLocation(location);
-    setContent(parseWeatherToContent(result));
+    try {
+      const result = await getWeatherByLocation(location);
+      setContent(parseWeatherToContent(result));
+    } catch (e) {
+      console.log('There was an unexpected error');
+    }
   };
-
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setContent(parseWeatherToContent(mockResponse));
-  //   }, 3000);
-  // }, []);
 
   useEffect(() => {
     if (position && !content) getWeather(position);
