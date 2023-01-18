@@ -24,7 +24,7 @@ const LocationMarker = ({
       <Marker position={position} icon={icon}>
         <Popup>You are here</Popup>
       </Marker>
-      <ControledLayers location={position}/>
+      {/* <ControledLayers location={position}/> */}
     </>
   )
 };
