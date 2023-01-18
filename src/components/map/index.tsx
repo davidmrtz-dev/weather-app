@@ -12,13 +12,14 @@ const MapWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 20px;
 `;
 
 const Map = ({
   position,
 }: {
   position: LatLngLiteral | null;
-}): JSX.Element => <MapWrapper id='mappp'>
+}): JSX.Element => <MapWrapper>
   <MapContainer
     center={{lat: 19.274919, lng: -99.147155}}
     zoom={13}
