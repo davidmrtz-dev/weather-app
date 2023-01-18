@@ -24,8 +24,12 @@ const Home = (): JSX.Element => {
   const [updateTop, setUpdateTop] = useState(false);
 
   const getCities = async(location: LatLngLiteral): Promise<void> => {
-    const result = await getCitiesByLocation(location, '100');
-    setNearCities(result.data);
+    try {
+      const result = await getCitiesByLocation(location, '100');
+      setNearCities(result.data);
+    } catch(e) {
+      console.log('There was an unexpected error');
+    }
   };
 
   const getWeather = async(location: LatLngLiteral): Promise<void> => {
@@ -33,7 +37,7 @@ const Home = (): JSX.Element => {
       const result = await getWeatherByLocation(location);
       setContent(parseWeatherToContent(result));
     } catch (e) {
-      console.log('there was an error');
+      console.log('There was an unexpected error');
     }
   };
 
