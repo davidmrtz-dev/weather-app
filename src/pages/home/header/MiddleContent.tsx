@@ -6,7 +6,7 @@ import { capitalizeFirst, toCelsius } from "../../../utils";
 import { LogoDict } from "../../../utils/Logos";
 
 const ContentItemWrapper = styled.div`
-  background-color: rgb(111, 120, 123, .5);
+  background-color: rgb(111, 120, 123, .4);
   display: flex;
   min-width: calc(360px - (16px*2));
   height: 200px;

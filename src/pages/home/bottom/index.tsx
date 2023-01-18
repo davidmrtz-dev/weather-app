@@ -6,7 +6,7 @@ import { theme } from "../../../Theme";
 import { capitalizeFirst } from "../../../utils";
 
 const ContentItemWrapper = styled.div`
-  background-color: rgb(111, 120, 123, .5);
+  background-color: rgb(111, 120, 123, .4);
   display: flex;
   min-width: calc(360px - (16px*2));
   height: 150px;
