@@ -18,11 +18,11 @@ const Map = ({
   position,
 }: {
   position: LatLngLiteral | null;
-}): JSX.Element => <MapWrapper>
+}): JSX.Element => <MapWrapper id='mappp'>
   <MapContainer
     center={{lat: 19.274919, lng: -99.147155}}
     zoom={13}
-    style={{ width: 360, height: 320, zIndex: 1 }}
+    style={{ width: 360, height: 320, zIndex: 1, borderRadius: '10px' }}
     dragging={false}
     scrollWheelZoom={false}
   >
