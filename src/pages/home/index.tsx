@@ -20,6 +20,7 @@ const Home = (): JSX.Element => {
   const [nearCities, setNearCities] = useState<City []>([]);
   const [content, setContent] = useState<Content | null>(null);
   const [region, setRegion] = useState('');
+  const [updateTop, setUpdateTop] = useState(false);
 
   const getCities = async(location: LatLngLiteral): Promise<void> => {
     const result = await getCitiesByLocation(location, '100');
@@ -37,6 +38,20 @@ const Home = (): JSX.Element => {
     if (nearCities.length > 0 && !region) setRegion(nearCities[0].region);
   }, [position, content, nearCities, region]);
 
+  useEffect(() => {
+    if (position) {
+      setUpdateTop(true);
+    }
+  }, [position]);
+
+  useEffect(() => {
+    if (updateTop) {
+      setTimeout(() => {
+        setUpdateTop(false);
+      }, 1000);
+    }
+  }, [updateTop])
+
   return (
     <>
       <div style={{
@@ -46,6 +61,7 @@ const Home = (): JSX.Element => {
           <Header
             content={content}
             region={region}
+            updating={updateTop}
           />
           <Map position={position} />
           <Bottom
