@@ -13,7 +13,7 @@ const ContentContainer = styled.div`
   border-radius: 10px;
   justify-content: center;
   align-items: center;
-  background-color: rgba(86, 130, 215, 0.4);
+  gap: 20px;
 `;
 
   const ContentItemWrapper = styled.div`
@@ -21,11 +21,12 @@ const ContentContainer = styled.div`
   flex-direction: column;
   min-width: calc(360px - (20px*2));
   height: 90%;
-  background-color: rgba(86, 130, 215, 0.4);
+  background-color: rgb(111, 120, 123, .5);
   margin: 2px;
   opacity: 1;
   border-radius: 10px;
   justify-content: center;
+  padding: 15px;
 `;
 
 const Bottom = ({

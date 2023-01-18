@@ -11,15 +11,15 @@ const ContentContainer = styled.div`
   overflow-x: auto;
   overflow-y: hidden;
   margin: 20px 0;
-  background-color: rgba(86, 130, 215, 0.4);
   border-radius: 10px;
+  gap: 20px;
 `;
 
 const ContentItemWrapper = styled.div`
+  background-color: rgb(111, 120, 123, .5);
   display: flex;
   min-width: calc(360px - (16px*2));
   height: 100%;
-  margin: 2px;
   opacity: 1;
   border-radius: 10px;
 `;
