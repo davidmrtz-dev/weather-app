@@ -39,9 +39,11 @@ const Bottom = ({
   setPosition: (newPos: LatLngLiteral) => void;
 }): JSX.Element => <ContentContainer>
   {nearCities.length > 0 && nearCities.map((city: City) => <ContentItemWrapper
+    key={city.id}
     onClick={() => setPosition({ lat: city.latitude, lng: city.longitude })}
   >
     {Object.keys(city).filter(k => validCityKeys.includes(k)).map((key) => <Typography
+      key={key}
       style={{
         ...theme.texts.brandSubFont,
         color: theme.colors.lighterWhite
