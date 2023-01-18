@@ -13,6 +13,7 @@ const ContentContainer = styled.div`
   margin: 20px 0;
   border-radius: 10px;
   gap: 20px;
+  cursor: default;
 `;
 
 const ContentItemWrapper = styled.div`

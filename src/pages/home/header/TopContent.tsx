@@ -9,6 +9,7 @@ const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  cursor: default;
 `;
 
 const ContentWrapper = styled.div`

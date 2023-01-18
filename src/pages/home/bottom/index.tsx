@@ -14,6 +14,7 @@ const ContentContainer = styled.div`
   justify-content: center;
   align-items: center;
   gap: 20px;
+  cursor: default;
 `;
 
   const ContentItemWrapper = styled.div`
@@ -27,6 +28,7 @@ const ContentContainer = styled.div`
   border-radius: 10px;
   justify-content: center;
   padding: 15px;
+  cursor: pointer;
 `;
 
 const Bottom = ({
