@@ -29,15 +29,13 @@ const Home = (): JSX.Element => {
   };
 
   const getWeather = async(location: LatLngLiteral): Promise<void> => {
-    const result = await getWeatherByLocation(location);
-    setContent(parseWeatherToContent(result));
+    try {
+      const result = await getWeatherByLocation(location);
+      setContent(parseWeatherToContent(result));
+    } catch (e) {
+      console.log('there was an error');
+    }
   };
-
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setContent(parseWeatherToContent(mockResponse));
-  //   }, 3000);
-  // }, []);
 
   useEffect(() => {
     if (position && !content) getWeather(position);
