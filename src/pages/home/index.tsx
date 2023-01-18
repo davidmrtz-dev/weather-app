@@ -2,6 +2,7 @@ import { LatLngLiteral } from 'leaflet';
 import { useEffect, useState } from 'react';
 import { City, Content, mockResponse, WeatherResponse } from '../../@types';
 import { getCitiesByLocation } from '../../api/core/GeoDB';
+import { getWeatherByLocation } from '../../api/core/OpenWeather';
 import { LoadingMask } from '../../atoms/LoadingMask';
 import Map from '../../components/map';
 import Bottom from './bottom';
@@ -27,13 +28,19 @@ const Home = (): JSX.Element => {
     setNearCities(result.data);
   };
 
-  useEffect(() => {
-    setTimeout(() => {
-      setContent(parseWeatherToContent(mockResponse));
-    }, 3000);
-  }, []);
+  const getWeather = async(location: LatLngLiteral): Promise<void> => {
+    const result = await getWeatherByLocation(location);
+    setContent(parseWeatherToContent(result));
+  };
+
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setContent(parseWeatherToContent(mockResponse));
+  //   }, 3000);
+  // }, []);
 
   useEffect(() => {
+    if (position && !content) getWeather(position);
     if (position && content && nearCities.length === 0) getCities(position);
     if (nearCities.length > 0 && !region) setRegion(nearCities[0].region);
   }, [position, content, nearCities, region]);

@@ -6,7 +6,6 @@ type HttpResult = {
 };
 
 const axiosClient = axios.create({
-  baseURL: 'https://wft-geo-db.p.rapidapi.com/v1/geo',
   headers: {
     'Content-Type': 'application/json',
     'X-RapidAPI-Key': process.env.REACT_APP_GEO_DB_KEY,
@@ -20,7 +19,7 @@ const axiosClient = axios.create({
 axiosClient.interceptors.response.use(function (response) {
   return response;
 }, function (error) {
-  return Promise.reject(error.response.data);
+  return Promise.reject(error.response?.data);
 });
 
 
