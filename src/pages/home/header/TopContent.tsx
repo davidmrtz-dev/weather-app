@@ -1,7 +1,9 @@
-import { ReactComponent as Logo} from '../../../assets/svg/02n.svg';
 import { Typography } from "antd";
 import styled from "styled-components";
 import { theme } from "../../../Theme";
+import { Content } from '../../../@types';
+import { toCelsius } from '../../../utils';
+import { LogoDict } from "../../../utils/Logos";
 
 const ContentContainer = styled.div`
   display: flex;
@@ -13,7 +15,11 @@ const ContentWrapper = styled.div`
   flex: 1;
 `;
 
-export const TopContent = (): JSX.Element => <ContentContainer>
+export const TopContent = ({
+  content
+}: {
+  content: Content | null
+}): JSX.Element => content ? (<ContentContainer>
   <ContentWrapper style={{ paddingTop: '10px' }}>
     <Typography
       style={{
@@ -37,7 +43,7 @@ export const TopContent = (): JSX.Element => <ContentContainer>
         color: theme.colors.lighterWhite,
         fontSize: '5em'
       }}>
-        21
+        {toCelsius(content.secondSection?.temp, 1)}
       </Typography>
       <Typography style={{
         ...theme.texts.brandFont,
@@ -45,10 +51,10 @@ export const TopContent = (): JSX.Element => <ContentContainer>
         fontWeight: 'bold',
         position: 'absolute',
         top: 20,
-        left: 90,
+        left: 155,
         width: 100
       }}>c°</Typography>
     </div>
-    <Logo fill={theme.colors.lighterWhite} width={100}/>
+    {LogoDict[content.firstSection?.icon as keyof typeof LogoDict || 'unknown']}
   </ContentWrapper>
-</ContentContainer>;
+</ContentContainer>) : (<></>);
