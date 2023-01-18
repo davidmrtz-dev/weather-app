@@ -16,12 +16,10 @@ export const LocationRequester = ({
 
   useEffect(() => {
     if ('geolocation' in navigator) {
-      console.log('granted!');
       navigator.geolocation.getCurrentPosition((position) => {
         setPosition({ lat: position.coords.latitude, lng: position.coords.longitude });
       });
     } else {
-      console.log('denied!');
       // TODO: Set a default center
     }
   }, []);

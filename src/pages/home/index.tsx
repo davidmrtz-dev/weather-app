@@ -19,6 +19,7 @@ const Home = (): JSX.Element => {
   const [position, setPosition] = useState<null | LatLngLiteral>(null);
   const [nearCities, setNearCities] = useState<City []>([]);
   const [content, setContent] = useState<Content | null>(null);
+  const [region, setRegion] = useState('');
 
   const getCities = async(location: LatLngLiteral): Promise<void> => {
     const result = await getCitiesByLocation(location, '100');
@@ -32,10 +33,9 @@ const Home = (): JSX.Element => {
   }, []);
 
   useEffect(() => {
-    if (position && content) {
-      // getCities(position);
-    }
-  }, [position, content]);
+    if (position && content && nearCities.length === 0) getCities(position);
+    if (nearCities.length > 0 && !region) setRegion(nearCities[0].region);
+  }, [position, content, nearCities, region]);
 
   return (
     <>
@@ -43,7 +43,10 @@ const Home = (): JSX.Element => {
         padding: '0 16px'
       }}>
         {content ? (<>
-          <Header content={content} />
+          <Header
+            content={content}
+            region={region}
+          />
           <Map position={position} />
           <Bottom
             nearCities={nearCities}

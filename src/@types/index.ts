@@ -16,6 +16,8 @@ export interface City {
   wikiDataId: string;
 };
 
+export const validCityKeys = ['name', 'country', 'region', 'distance'];
+
 export interface ThirdSection extends Wind, Rain, Clouds {};
 export interface Content {
   firstSection: Weather | undefined,

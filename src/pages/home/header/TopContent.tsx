@@ -9,6 +9,7 @@ const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  cursor: default;
 `;
 
 const ContentWrapper = styled.div`
@@ -16,9 +17,11 @@ const ContentWrapper = styled.div`
 `;
 
 export const TopContent = ({
-  content
+  content,
+  region
 }: {
-  content: Content | null
+  content: Content | null;
+  region: string;
 }): JSX.Element => content ? (<ContentContainer>
   <ContentWrapper style={{ paddingTop: '10px' }}>
     <Typography
@@ -26,7 +29,7 @@ export const TopContent = ({
         ...theme.texts.brandFont,
         color: theme.colors.lighterWhite
       }}
-    >Now in Queretaro</Typography>
+    >Now in {region || ''}</Typography>
   </ContentWrapper>
   <ContentWrapper
     style={{
