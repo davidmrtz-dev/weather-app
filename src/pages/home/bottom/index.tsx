@@ -1,33 +1,18 @@
-import { Typography } from "antd";
+import { Carousel, Typography } from "antd";
 import { LatLngLiteral } from "leaflet";
 import styled from "styled-components";
 import { City, validCityKeys } from "../../../@types";
 import { theme } from "../../../Theme";
 import { capitalizeFirst } from "../../../utils";
 
-const ContentContainer = styled.div`
-  display: flex;
-  overflow-x: auto;
-  overflow-y: hidden;
-  margin: 20px 0;
-  border-radius: 10px;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  cursor: default;
-`;
-
-  const ContentItemWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  min-width: calc(360px - (20px*2));
-  height: 90%;
+const ContentItemWrapper = styled.div`
   background-color: rgb(111, 120, 123, .5);
-  margin: 2px;
+  display: flex;
+  min-width: calc(360px - (16px*2));
+  height: 150px;
   opacity: 1;
   border-radius: 10px;
-  justify-content: center;
-  padding: 15px;
+  padding: 20px 16px 40px;
   cursor: pointer;
 `;
 
@@ -37,7 +22,7 @@ const Bottom = ({
 }: {
   nearCities: City [];
   setPosition: (newPos: LatLngLiteral) => void;
-}): JSX.Element => <ContentContainer>
+}): JSX.Element => <Carousel autoplay>
   {nearCities.length > 0 && nearCities.map((city: City) => <ContentItemWrapper
     key={city.id}
     onClick={() => setPosition({ lat: city.latitude, lng: city.longitude })}
@@ -52,6 +37,6 @@ const Bottom = ({
       <strong>{capitalizeFirst(key)}:</strong> {city[key as keyof typeof city].toString()}
     </Typography>)}
   </ContentItemWrapper>)}
-</ContentContainer>;
+</Carousel>;
 
 export default Bottom;
