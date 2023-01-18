@@ -19,7 +19,7 @@ const axiosClient = axios.create({
 axiosClient.interceptors.response.use(function (response) {
   return response;
 }, function (error) {
-  return Promise.reject(error.response.data);
+  return Promise.reject(error.response?.data);
 });
 
 
