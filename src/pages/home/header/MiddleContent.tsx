@@ -11,6 +11,8 @@ const ContentItemWrapper = styled.div`
   min-width: calc(360px - (16px*2));
   opacity: 1;
   border-radius: 10px;
+  height: 170px;
+  padding: 0 0 40px 0;
 `;
 
 export const MiddleContent = ({
