@@ -5,7 +5,6 @@ import { getCitiesByLocation } from '../../api/core/GeoDB';
 import { getWeatherByLocation } from '../../api/core/OpenWeather';
 import { LoadingMask } from '../../atoms/LoadingMask';
 import Map from '../../components/map';
-import { theme } from '../../Theme';
 import Bottom from './bottom';
 import Header from './header';
 import { LocationRequester } from './location/LocationRequester';
