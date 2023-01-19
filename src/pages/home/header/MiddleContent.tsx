@@ -17,10 +17,10 @@ export const MiddleContent = ({
   content
 }: {
   content: Content | null
-}): JSX.Element => <Carousel>
+}): JSX.Element => <Carousel autoplay>
       {content?.firstSection &&  <FirstSection item={content.firstSection}/>}
-      {/* {content?.secondSection &&  <SecondSection item={content.secondSection}/>}
-      {content?.thirdSection &&  <LastSection item={content.thirdSection}/>} */}
+      {content?.secondSection &&  <SecondSection item={content.secondSection}/>}
+      {content?.thirdSection &&  <LastSection item={content.thirdSection}/>}
 </Carousel>;
 
 const LastSection = <T extends ThirdSection | undefined>({item}: {item:T}): JSX.Element => {
