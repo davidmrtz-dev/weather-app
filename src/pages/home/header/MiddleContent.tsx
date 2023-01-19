@@ -6,23 +6,21 @@ import { capitalizeFirst, toCelsius } from "../../../utils";
 import { LogoDict } from "../../../utils/Logos";
 
 const ContentItemWrapper = styled.div`
-  background-color: rgb(111, 120, 123, .4);
+  background-color: rgb(90, 134, 222, .8);
   display: flex;
   min-width: calc(360px - (16px*2));
-  height: 200px;
   opacity: 1;
   border-radius: 10px;
-  padding: 20px 0 40px;
 `;
 
 export const MiddleContent = ({
   content
 }: {
   content: Content | null
-}): JSX.Element => <Carousel autoplay>
+}): JSX.Element => <Carousel>
       {content?.firstSection &&  <FirstSection item={content.firstSection}/>}
-      {content?.secondSection &&  <SecondSection item={content.secondSection}/>}
-      {content?.thirdSection &&  <LastSection item={content.thirdSection}/>}
+      {/* {content?.secondSection &&  <SecondSection item={content.secondSection}/>}
+      {content?.thirdSection &&  <LastSection item={content.thirdSection}/>} */}
 </Carousel>;
 
 const LastSection = <T extends ThirdSection | undefined>({item}: {item:T}): JSX.Element => {
@@ -127,15 +125,22 @@ const FirstSection = ({ item }: { item: Weather | undefined, }): JSX.Element => 
   {item && (<div style={{
     width: '100%',
     height: '100%',
-    display: 'flex'
+    display: 'flex',
+    flexDirection: 'column',
+    paddingLeft: 16
   }}>
     <div style={{
       flex: 1,
-      flexDirection: 'column',
       display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-      padding: '40px 0'
+      width: 80,
+    }}>
+      {LogoDict[item?.icon as keyof typeof LogoDict || 'unknown']}
+    </div>
+    <div style={{
+      flex: 1,
+      display: 'flex',
+      flexDirection: 'column',
+      paddingBottom: 16
     }}>
       <Typography style={{
         ...theme.texts.brandH3,
@@ -145,14 +150,6 @@ const FirstSection = ({ item }: { item: Weather | undefined, }): JSX.Element => 
         ...theme.texts.brandFont,
         color: theme.colors.lighterWhite
       }}>{capitalizeFirst(item.description)}</Typography>
-    </div>
-    <div style={{
-      flex: 1,
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center'
-    }}>
-      {LogoDict[item?.icon as keyof typeof LogoDict || 'unknown']}
     </div>
   </div>)}
 </ContentItemWrapper>;
