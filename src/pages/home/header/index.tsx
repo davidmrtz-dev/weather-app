@@ -31,7 +31,8 @@ const Header = ({
   </div> : (<div style={{
     display: 'flex',
     flexDirection: 'column',
-    width: '100%'
+    width: '100%',
+    paddingBottom: 20
   }}>
     <TopContent
       content={content}

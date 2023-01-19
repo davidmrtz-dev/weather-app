@@ -5,6 +5,7 @@ import { getCitiesByLocation } from '../../api/core/GeoDB';
 import { getWeatherByLocation } from '../../api/core/OpenWeather';
 import { LoadingMask } from '../../atoms/LoadingMask';
 import Map from '../../components/map';
+import { theme } from '../../Theme';
 import Bottom from './bottom';
 import Header from './header';
 import { LocationRequester } from './location/LocationRequester';
@@ -63,22 +64,29 @@ const Home = (): JSX.Element => {
 
   return (
     <>
-      <div style={{
-        padding: '0 16px'
-      }}>
-        {(content && position) ? (<>
+      {(content && position) ? (<>
+        <div style={{
+          padding: '0 16px'
+        }}>
           <Header
             content={content}
             region={region}
             updating={updateTop}
           />
+        </div>
+        <div style={{
+          padding: '16px 16px',
+          backgroundColor: 'rgba(250, 250, 251, .8)',
+          borderTopLeftRadius: '10px',
+          borderTopRightRadius: '10px'
+        }}>
           <Map position={position} />
           <Bottom
             nearCities={nearCities}
             setPosition={setPosition}
           />
-        </>) : (<LoadingMask fixed />)}
-      </div>
+        </div>
+      </>) : (<LoadingMask fixed />)}
       <LocationRequester  {...{ open: !position, setPosition: setPosition }}/>
     </>
   );
