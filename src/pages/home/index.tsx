@@ -1,6 +1,6 @@
 import { LatLngLiteral } from 'leaflet';
 import { useEffect, useState } from 'react';
-import { City, Content, mockResponse, WeatherResponse } from '../../@types';
+import { City, Content, WeatherResponse } from '../../@types';
 import { getCitiesByLocation } from '../../api/core/GeoDB';
 import { getWeatherByLocation } from '../../api/core/OpenWeather';
 import { LoadingMask } from '../../atoms/LoadingMask';
