@@ -34,12 +34,12 @@ export const TopContent = ({
   <ContentWrapper
     style={{
       display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'space-around'
+      alignItems: 'center'
     }}
   >
-    <div style={{
-      position: 'relative'
+    <div id='working' style={{
+      display: 'flex',
+      flex: 2
     }}>
       <Typography style={{
         ...theme.texts.brandH1,
@@ -52,12 +52,13 @@ export const TopContent = ({
         ...theme.texts.brandFont,
         color: theme.colors.lighterWhite,
         fontWeight: 'bold',
-        position: 'absolute',
-        top: 20,
-        left: 155,
-        width: 100
+        paddingTop: '10px'
       }}>c°</Typography>
     </div>
-    {LogoDict[content.firstSection?.icon as keyof typeof LogoDict || 'unknown']}
+    <div style={{
+      flex: 1
+    }}>
+      {LogoDict[content.firstSection?.icon as keyof typeof LogoDict || 'unknown']}
+    </div>
   </ContentWrapper>
 </ContentContainer>) : (<></>);
