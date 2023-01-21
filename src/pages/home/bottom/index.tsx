@@ -34,7 +34,7 @@ const Bottom = ({
         color: theme.colors.lighterWhite
       }}
     >
-      <strong>{capitalizeFirst(key)}:</strong> {city[key as keyof typeof city].toString()}
+      <strong>{capitalizeFirst(key)}:</strong> {city[key as keyof typeof city].toString()}{key === 'distance' && ' km'}
     </Typography>)}
   </ContentItemWrapper>)}
 </Carousel>;
