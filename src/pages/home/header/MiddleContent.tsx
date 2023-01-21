@@ -99,25 +99,25 @@ const SecondSection = ({ item }: { item: Main | undefined, }): JSX.Element => <C
         ...theme.texts.brandFont,
         color: theme.colors.lighterWhite
       }}>
-        Temperature: {toCelsius(item.temp)}
+        Temperature: {toCelsius(item.temp)} c°
       </Typography>
       <Typography style={{
         ...theme.texts.brandFont,
         color: theme.colors.lighterWhite
       }}>
-        Feels like: {toCelsius(item.feels_like)}
+        Feels like: {toCelsius(item.feels_like)} c°
       </Typography>
       <Typography style={{
         ...theme.texts.brandFont,
         color: theme.colors.lighterWhite
       }}>
-        Min: {toCelsius(item.temp_min)}
+        Min: {toCelsius(item.temp_min)} c°
       </Typography>
       <Typography style={{
         ...theme.texts.brandFont,
         color: theme.colors.lighterWhite
       }}>
-        Max: {toCelsius(item.temp_max)}
+        Max: {toCelsius(item.temp_max)} c°
       </Typography>
     </div>
   </div>)}
